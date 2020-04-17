@@ -9,5 +9,7 @@ thanks for reading me
  ludum dreams
 
 
-# Members:
+# List of Dudes:
+- Grug - Code
+- Kratos - Art and GUI
 - framk - Music/Shaders/Programming

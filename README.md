@@ -14,3 +14,4 @@ thanks for reading me
 - Kratos - Art and GUI
 - framk - Music/Shaders/Programming
 - Axe - VFX/Rigging/Animation Implementation/Shaders
+- goet - Code

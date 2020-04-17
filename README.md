@@ -11,3 +11,4 @@ thanks for reading me
 
 # List of Dudes:
 Grug - Code
+Kratos - Art and GUI

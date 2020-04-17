@@ -15,3 +15,4 @@ thanks for reading me
 - framk - Music/Shaders/Programming
 - Axe - VFX/Rigging/Animation Implementation/Shaders
 - goet - Code
+- Silpheed - Code / 3D Models / 2D Art

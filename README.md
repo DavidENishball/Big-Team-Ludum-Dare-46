@@ -13,3 +13,4 @@ thanks for reading me
 - Grug - Code
 - Kratos - Art and GUI
 - framk - Music/Shaders/Programming
+- Axe - VFX/Rigging/Animation Implementation/Shaders

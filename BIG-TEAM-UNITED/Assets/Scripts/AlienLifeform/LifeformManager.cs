@@ -30,6 +30,8 @@ public class LifeformManager : MonoBehaviour
         SELF_DESTRUCT_TANK
     }
 
+    public bool IsLifeFormDestroyed = false;
+
 
     public StateMachine stateMachine = new StateMachine();
 

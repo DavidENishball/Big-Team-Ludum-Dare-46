@@ -12,7 +12,9 @@ public class State_Tank_Ready : IState
     public void Enter()
     {
         Debug.Log("entering State_Tank_Ready");
+        LifeformManager.Instance.IsLifeFormDestroyed = false;
         owner.SummonTank();
+       
     }
 
     public void Execute()
@@ -33,8 +35,11 @@ public class State_Tank_Ready : IState
         }
         else if (Verb == LifeformManager.EControlVerbs.SELF_DESTRUCT_TANK)
         {
-            LifeformManager.Instance.stateMachine.ChangeState(new State_LifeForm_Destroyed(LifeformManager.Instance));
-            return true;
+            if (LifeformManager.Instance.IsLifeFormDestroyed == false)
+            {
+                LifeformManager.Instance.stateMachine.ChangeState(new State_LifeForm_Destroyed(LifeformManager.Instance));
+                return true;
+            }
         }
         return false;
     }

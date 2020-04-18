@@ -16,6 +16,7 @@ public class State_LifeForm_Destroyed : IState
         Debug.Log("entering State_LifeForm_Destroyed");
         owner.TankReference.Lifeform.SetActive(false);
 
+        owner.IsLifeFormDestroyed = true;
         GameObject.Instantiate(LifeformManager.Instance.SelfDestructParticle , owner.TankReference.Lifeform.transform.position, Random.rotation );
         
     }

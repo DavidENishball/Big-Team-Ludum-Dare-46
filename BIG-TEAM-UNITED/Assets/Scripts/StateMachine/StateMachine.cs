@@ -29,4 +29,9 @@ public class StateMachine
         }
         return false;
     }
+
+    public IState GetState()
+    {
+        return currentState;
+    }
 }

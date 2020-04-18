@@ -17,3 +17,5 @@ thanks for reading me
 - goet - Code
 - Silpheed - Code / 3D Models / 2D Art
 - barondev - code / 3d model (rigging + animation) / SFX / design 
+- Blank - Code
+- Mobius - Music

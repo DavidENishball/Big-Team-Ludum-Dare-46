@@ -39,3 +39,8 @@ public class PerformVerbSignal : ASignal<Component, LifeformManager.EControlVerb
 public class DismissTankSignal : ASignal { }
 
 public class ReadyTankSignal : ASignal { }
+
+public class NewStageStartingSignal : ASignal<State_LifeForm_Growing> { };
+public class StageSucceeded : ASignal<State_LifeForm_Growing> { };
+
+public class StageFailed : ASignal<State_LifeForm_Growing> { };

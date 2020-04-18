@@ -13,6 +13,7 @@ public class State_Tank_Ready : IState
     {
         Debug.Log("entering State_Tank_Ready");
         LifeformManager.Instance.IsLifeFormDestroyed = false;
+        LifeformManager.Instance.stateMachine.ChangeState(new State_LifeForm_Growing(LifeformManager.Instance));
         owner.SummonTank();
        
     }

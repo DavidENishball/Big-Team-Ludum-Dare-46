@@ -27,7 +27,11 @@ public class LifeformManager : MonoBehaviour
     {
         READY_TANK,
         DISMISS_TANK,
-        SELF_DESTRUCT_TANK
+        SELF_DESTRUCT_TANK,
+        PUZZLE_COMPLETE,
+        PUZZLE_ERROR,
+        PUZZLE_PROGRESS,
+        NEW_STAGE_STARTING,
     }
 
     public bool IsLifeFormDestroyed = false;
@@ -38,6 +42,8 @@ public class LifeformManager : MonoBehaviour
 
     public LifeformTank TankReference;
 
+    public int PuzzlesCompleted = 0;
+
 
     public bool TankIsReady;
     public ETankState TankState = ETankState.DISMISSED;
@@ -47,11 +53,6 @@ public class LifeformManager : MonoBehaviour
     {
         // Set up static instance.
         static_instance = this;
-
-
-        // Bind to signals;
-        Signals.Get<ReadyTankSignal>().AddListener(ReceiveSummonTankCommand);
-        Signals.Get<DismissTankSignal>().AddListener(ReceiveDismissTankCommand);
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
     }
 
@@ -75,16 +76,6 @@ public class LifeformManager : MonoBehaviour
         
     }
 
-    public void ReceiveSummonTankCommand()
-    {
-        TankReference.stateMachine.ChangeState(new State_Tank_Ready(TankReference));
-    }
-
-    public void ReceiveDismissTankCommand()
-    {
-        // Augh, state machines.
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -95,5 +86,22 @@ public class LifeformManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    public void SetCreatureStateVisuals(int StageNumber)
+    {
+        // TODO
+    }
+
+    public int GetNumberOfPuzzlesRequiredForStage(int StageNumber)
+    {
+        // TODO: make this a table.
+        return Mathf.Max(1, StageNumber / 2);
+    }
+
+    public int GetNumberOfFailuresAllowedForStage(int StageNumber)
+    {
+        // TODO: make this a table.
+        return Mathf.Max(2, 5 - StageNumber);
     }
 }

@@ -60,7 +60,7 @@ public class AxeManager : MonoBehaviour
        
     }
 
-    public void HandleButton(int ID)
+    public void HandleButton(Component sourceButton, int ID)
     {
         if(_holdTimer == 0)
         {

@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using deVoid.Utils;
 using UnityEngine;
 
-public class Knob : MonoBehaviour
+/// <summary>
+/// Controller for a knob you can rotate to set it between its min and max value.
+/// </summary>
+public class Knob : MonoBehaviour, IValueInteractable
 {
     public float minValue = -1;
     public float maxValue = 1;
     public float value;
-    public GameObject thingToRotate;
-    public int ID = 0;
     public LifeformManager.EControlVerbs Command;
 
-    private bool interactable = true;
+    public GameObject thingToRotate;
+    public int ID = 0;
+
     private bool pressed = false;
 
     private const float maxRotation = 90f;
@@ -20,6 +21,48 @@ public class Knob : MonoBehaviour
 
     private Vector3 lastMousepos = Vector3.zero;
 
+    // interface stuff
+    public float GetValue()
+    {
+        return value;
+    }
+
+    public void SetValue(float newValue)
+    {
+        value = newValue;
+        RotateBasedOnValue();
+    }
+
+    // maths
+    private void RotateBasedOnMousePosition()
+    {
+        var delta = Input.mousePosition.x - lastMousepos.x;
+        Rotate(delta);
+        lastMousepos = Input.mousePosition;
+    }
+
+    private void Rotate(float delta)
+    {
+        rotation = Mathf.Clamp(rotation + delta, -maxRotation, maxRotation);
+        thingToRotate.transform.localRotation = Quaternion.Euler(0, rotation, 0);
+    }
+
+    private void UpdateValueBasedOnRotation()
+    {
+        var t = (rotation + maxRotation) / (2 * maxRotation);
+        value = Mathf.Lerp(minValue, maxValue, t);
+
+        Signals.Get<PerformVerbSignal>().Dispatch(this, Command, ID);
+    }
+
+    private void RotateBasedOnValue()
+    {
+        var t = Mathf.InverseLerp(minValue, maxValue, value);
+        rotation = Mathf.Lerp(-maxRotation, maxRotation, t);
+        Rotate(0f);
+    }
+
+    // responding to mouseclicks
     private void Update()
     {
         if (pressed)
@@ -27,34 +70,13 @@ public class Knob : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
                 pressed = false;
 
-            Rotate();
-            UpdateValue();
+            RotateBasedOnMousePosition();
+            UpdateValueBasedOnRotation();
         }
-    }
-
-    private void Rotate()
-    {
-        var delta = Input.mousePosition.x - lastMousepos.x;
-
-        rotation = Mathf.Clamp(rotation + delta, -maxRotation, maxRotation);
-        Debug.Log(rotation);
-
-        thingToRotate.transform.localRotation = Quaternion.Euler(0, rotation, 0);
-
-        lastMousepos = Input.mousePosition;
-    }
-
-    private void UpdateValue()
-    {
-        var t = (rotation + maxRotation) / (2 * maxRotation);
-        value = Mathf.Lerp(minValue, maxValue, t);
     }
 
     private void OnMouseDown()
     {
-        if (!interactable)
-            return;
-
         pressed = true;
         lastMousepos = Input.mousePosition;
     }

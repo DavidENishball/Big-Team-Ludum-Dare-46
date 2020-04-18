@@ -49,9 +49,9 @@ MonoBehaviour:
   minValue: -1
   maxValue: 1
   value: 0
+  Command: 7
   thingToRotate: {fileID: 8823651361940722044}
   ID: 0
-  Command: 0
 --- !u!54 &43276578900632260
 Rigidbody:
   m_ObjectHideFlags: 0

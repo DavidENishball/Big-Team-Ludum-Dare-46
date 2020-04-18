@@ -15,6 +15,7 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
     public int PressesReceived = 0;
 
     public Material VictoryMaterial;
+    public Material ReadyMaterial;
     public GameObject SuccessParticle;
 
     public GameObject PanelBase;
@@ -28,7 +29,21 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
     void Start()
     {
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
+        Signals.Get<NewStageStartingSignal>().AddListener(ResetWithSource);
+    }
 
+    public void ResetWithSource(State_LifeForm_Growing Source)
+    {
+        Reset();
+    }
+
+
+    public override void Reset()
+    {
+        base.Reset();
+        IsCompleted = false;
+        PressesReceived = 0;
+        PanelBase.GetComponent<MeshRenderer>().material = ReadyMaterial;
     }
 
     public void ReceivedVerb(Component source, LifeformManager.EControlVerbs Verb, int data)

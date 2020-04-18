@@ -9,6 +9,10 @@ public class PuzzleManager_Base : MonoBehaviour
 
     public bool IsCompleted = false;
 
+    public virtual void Reset()
+    {
+        // This is only for debug.  New panels will be spawned fresh.
+    }
     public virtual void PuzzleComplete()
     {
         IsCompleted = true;

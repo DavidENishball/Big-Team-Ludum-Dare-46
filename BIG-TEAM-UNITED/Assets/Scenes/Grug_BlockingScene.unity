@@ -1937,7 +1937,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-15556
+  m_Name: pb_Mesh-32692
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3138,7 +3138,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-15560
+  m_Name: pb_Mesh-32718
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4452,7 +4452,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-15558
+  m_Name: pb_Mesh-32706
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4742,6 +4742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzlePrefab_Test_Basic
       objectReference: {fileID: 0}
+    - target: {fileID: 6494853699798894239, guid: 90d249cc474c2614d8977178d1620bef,
+        type: 3}
+      propertyPath: ReadyMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: abe22cff775f4f74f95e0d1d8e3b99ac, type: 2}
     - target: {fileID: 7853106998801272408, guid: 90d249cc474c2614d8977178d1620bef,
         type: 3}
       propertyPath: m_Mesh

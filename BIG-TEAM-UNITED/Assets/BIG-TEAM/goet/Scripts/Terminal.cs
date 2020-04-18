@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using deVoid.Utils;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class Terminal : MonoBehaviour
     private void Awake()
     {
         tmpro = GetComponentInChildren<TextMeshProUGUI>();
-        Display("welcome\nthis is my\ncool\ntest\nstring");
+        Signals.Get<DisplayTerminalMessageSignal>().AddListener(Display);
     }
 
     public void Display(string message)

@@ -39,3 +39,7 @@ public class PerformVerbSignal : ASignal<Component, LifeformManager.EControlVerb
 public class DismissTankSignal : ASignal { }
 
 public class ReadyTankSignal : ASignal { }
+
+
+
+public class DisplayTerminalMessageSignal : ASignal<string> { }

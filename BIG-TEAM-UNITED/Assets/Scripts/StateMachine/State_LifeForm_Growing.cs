@@ -7,7 +7,7 @@ public class State_LifeForm_Growing : IState
 {
     LifeformManager owner;
 
-    public int StageNumber = 0;
+    public int StageNumber = 1;
     public int PuzzlesRequiredForNextStage = 1;
     public int PuzzlesCompleted = 0;
     public int PuzzleErrorsPerformed = 0;
@@ -21,6 +21,9 @@ public class State_LifeForm_Growing : IState
     {
         Debug.Log("entering State_LifeForm_Growing");
         owner.IsLifeFormDestroyed = false;
+        Signals.Get<PuzzleComplete>().AddListener(HandlePuzzleCompleted);
+        Signals.Get<PuzzleError>().AddListener(HandlePuzzleError);
+
         ResetCurrentStage();
     }
 
@@ -49,16 +52,16 @@ public class State_LifeForm_Growing : IState
 
         if (Verb == LifeformManager.EControlVerbs.PUZZLE_COMPLETE)
         {
-            HandlePuzzleCompleted();
+            HandlePuzzleCompleted(Source);
         }
         else if (Verb == LifeformManager.EControlVerbs.PUZZLE_ERROR)
         {
-            HandlePuzzleError();
+            HandlePuzzleError(Source);
         }
         return false;
     }
 
-    public void HandlePuzzleCompleted()
+    public void HandlePuzzleCompleted(Component Source = null)
     {
         PuzzlesCompleted += 1;
         Debug.Log(string.Format("Stage {0} puzzle complete recorded.  {1} completions.  Maximum: {2}", StageNumber, PuzzlesCompleted, PuzzlesRequiredForNextStage));
@@ -71,7 +74,7 @@ public class State_LifeForm_Growing : IState
         }
     }
 
-    public void HandlePuzzleError()
+    public void HandlePuzzleError(Component Source = null)
     {
         if (!IsStageFailed)
         {

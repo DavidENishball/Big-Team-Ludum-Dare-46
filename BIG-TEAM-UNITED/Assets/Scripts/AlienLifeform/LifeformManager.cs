@@ -32,6 +32,7 @@ public class LifeformManager : MonoBehaviour
         PUZZLE_ERROR,
         PUZZLE_PROGRESS,
         NEW_STAGE_STARTING,
+        GENERIC_INPUT
     }
 
     public bool IsLifeFormDestroyed = false;

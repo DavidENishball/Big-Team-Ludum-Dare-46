@@ -9,7 +9,8 @@ public class AxeSimpleButton : MonoBehaviour
     public Animator Controller;
     protected bool interactable = true;
     public int ID = 0;
-    public LifeformManager.EControlVerbs Command;
+    public LifeformManager.EControlVerbs Command; // Using an enum so we can pick it in the editor.
+
 
     void Awake()
     {

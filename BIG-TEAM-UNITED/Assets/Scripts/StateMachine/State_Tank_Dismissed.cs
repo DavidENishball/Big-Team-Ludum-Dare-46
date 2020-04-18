@@ -24,4 +24,14 @@ public class State_Tank_Dismissed : IState
     {
         Debug.Log("exiting State_Tank_Dismissed state");
     }
+
+    public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)
+    {
+        if (Verb == LifeformManager.EControlVerbs.READY_TANK)
+        {
+            owner.stateMachine.ChangeState(new State_Tank_Ready(owner));
+            return true;
+        }
+        return false;
+    }
 }

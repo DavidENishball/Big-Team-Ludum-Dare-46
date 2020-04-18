@@ -7,4 +7,6 @@ public interface IState
     void Enter();
     void Execute();
     void Exit();
+
+    bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data);
 }

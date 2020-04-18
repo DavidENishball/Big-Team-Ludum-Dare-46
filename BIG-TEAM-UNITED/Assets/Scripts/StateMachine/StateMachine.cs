@@ -19,4 +19,14 @@ public class StateMachine
     {
         if (currentState != null) currentState.Execute();
     }
+
+
+    public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)
+    {
+        if (currentState != null)
+        {
+            return currentState.HandleVerb(Source, Verb, Data);
+        }
+        return false;
+    }
 }

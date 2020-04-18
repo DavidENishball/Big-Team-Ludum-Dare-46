@@ -5,13 +5,23 @@ using deVoid.Utils;
 // Class for managing the overall state of the lifeform and acts as a router between controlpanel signals and the state of the character.
 public class LifeformManager : MonoBehaviour
 {
+
+    public GameObject SelfDestructParticle; // Putting it here because we can't bake it into the Destroyed state.
+
+    protected static LifeformManager static_instance;
+    public static LifeformManager Instance
+    {
+        get
+        {
+            return static_instance;
+        }
+    }
     public enum ETankState
     {
         READY,
         DISMISSED,
         DESTROYED
     }
-
     // Verb list that the panel can send to the simulation.
     public enum EControlVerbs
     {
@@ -21,7 +31,7 @@ public class LifeformManager : MonoBehaviour
     }
 
 
-    StateMachine stateMachine = new StateMachine();
+    public StateMachine stateMachine = new StateMachine();
 
 
     public LifeformTank TankReference;
@@ -33,6 +43,11 @@ public class LifeformManager : MonoBehaviour
 
     private void Awake()
     {
+        // Set up static instance.
+        static_instance = this;
+
+
+        // Bind to signals;
         Signals.Get<ReadyTankSignal>().AddListener(ReceiveSummonTankCommand);
         Signals.Get<DismissTankSignal>().AddListener(ReceiveDismissTankCommand);
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
@@ -43,15 +58,19 @@ public class LifeformManager : MonoBehaviour
     public void ReceivedVerb(Component source, EControlVerbs Verb, int data)
     {
         Debug.Log("LifeFormManager received verb " + Verb.ToString());
-        if (Verb == EControlVerbs.READY_TANK)
-        {
-            TankReference.SummonTank();
+
+        stateMachine.HandleVerb(source, Verb, data);
+
+        //if (Verb == EControlVerbs.READY_TANK)
+        //{
+        //    TankReference.SummonTank();
             
-        }
-        else if (Verb == EControlVerbs.DISMISS_TANK)
-        {
-            TankReference.DismissTank();
-        }
+        //}
+        //else if (Verb == EControlVerbs.DISMISS_TANK)
+        //{
+        //    TankReference.DismissTank();
+        //}
+        
     }
 
     public void ReceiveSummonTankCommand()

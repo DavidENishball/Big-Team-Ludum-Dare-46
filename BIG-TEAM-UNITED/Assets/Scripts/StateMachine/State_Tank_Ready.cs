@@ -24,4 +24,18 @@ public class State_Tank_Ready : IState
     {
         Debug.Log("exiting State_Tank_Ready state");
     }
+
+    public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)
+    {
+        if (Verb == LifeformManager.EControlVerbs.DISMISS_TANK)
+        {
+            owner.stateMachine.ChangeState(new State_Tank_Dismissed(owner));
+        }
+        else if (Verb == LifeformManager.EControlVerbs.SELF_DESTRUCT_TANK)
+        {
+            LifeformManager.Instance.stateMachine.ChangeState(new State_LifeForm_Destroyed(LifeformManager.Instance));
+            return true;
+        }
+        return false;
+    }
 }

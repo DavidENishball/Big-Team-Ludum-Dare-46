@@ -17,19 +17,29 @@ public class LifeformTank : MonoBehaviour
     public Vector3 DismissedPosition;
     public Vector3 ReadyPosition;
 
-    public StateMachine stateMachine;
+    public StateMachine stateMachine = new StateMachine();
 
     private void Awake()
     {
         Signals.Get<ReadyTankSignal>().AddListener(SummonTank);
         Signals.Get<DismissTankSignal>().AddListener(DismissTank);
+        Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
     }
 
+
+    public void ReceivedVerb(Component source, LifeformManager.EControlVerbs Verb, int data)
+    {
+        Debug.Log("LifeFormTank received verb " + Verb.ToString());
+
+        stateMachine.HandleVerb(source, Verb, data);
+    }
 
     private void Start()
     {
         ReadyPosition = transform.position;
         DismissedPosition = ReadyPosition + DismissedOffset;
+
+        stateMachine.ChangeState(new State_Tank_Ready(this));
     }
 
 

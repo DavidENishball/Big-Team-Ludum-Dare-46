@@ -10,10 +10,13 @@ public class Timer
 
     public float Remaining { get; set; }
 
-    public Timer(float startValue, float bonusPerStageCompletion, float slowTickStartValue)
+    public string RemainingReadable => Remaining.ToString("F1");
+
+    public Timer(float startValue, float bonusPerStageCompletion, float penaltyPerFailure, float slowTickStartValue)
     {
         StartValue = startValue;
         BonusPerStageCompletion = bonusPerStageCompletion;
+        PenaltyPerFailure = penaltyPerFailure;
         DangerTime = slowTickStartValue;
 
         Remaining = StartValue;

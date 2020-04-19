@@ -50,6 +50,7 @@ public class LifeformManager : MonoBehaviour
 
     public float TimerStartValue = 120f;
     public float BonusTimePerStage = 30f;
+    public float PenaltyPerError = 5f;
     public float DangerTimeKickinValue = 10f;
     public Timer timer;
 
@@ -61,7 +62,7 @@ public class LifeformManager : MonoBehaviour
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
 
         // Set up timer
-        timer = new Timer(TimerStartValue, BonusTimePerStage, DangerTimeKickinValue);
+        timer = new Timer(TimerStartValue, BonusTimePerStage, PenaltyPerError, DangerTimeKickinValue);
         Signals.Get<PuzzleComplete>().AddListener(timer.AddBonus);
         Signals.Get<PuzzleError>().AddListener(timer.SubtractPenalty);
     }

@@ -1,4 +1,5 @@
 ﻿using deVoid.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FindTheValuePuzzle : PuzzleManager_Base
@@ -9,6 +10,9 @@ public class FindTheValuePuzzle : PuzzleManager_Base
     public int maximumDiffFromStart = 300;
     public int correctValue;
     public int currentValue;
+    public Knob knob100;
+    public Knob knob10;
+    public Knob knob1;
 
     private void Awake()
     {
@@ -41,21 +45,30 @@ public class FindTheValuePuzzle : PuzzleManager_Base
         {
             if (!IsCompleted)
             {
+                CalculateValue();
                 var diff = currentValue - correctValue;
                 LightLamp(diff);
 
+                Debug.Log("current value: " + currentValue);
+
                 if (diff == 0f)
                 {
+                    IsCompleted = true;
                     Signals.Get<PuzzleComplete>().Dispatch(this);
                 }
             }
         }
     }
 
+    private void CalculateValue()
+    {
+        currentValue = Mathf.RoundToInt(knob100.value) * 100 + Mathf.RoundToInt(knob10.value) * 10 + Mathf.RoundToInt(knob1.value);
+    }
+
     private void LightLamp(int diff)
     {
         var absDiff = Mathf.Abs(diff);
-        int sign = diff / absDiff;
+        int sign = diff / (absDiff == 0 ? 1 : absDiff);
 
         if (100 <= absDiff)
             Signals.Get<FindTheValueDiffLight>().Dispatch(this, sign * 100);

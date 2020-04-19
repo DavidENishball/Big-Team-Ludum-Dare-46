@@ -1041,9 +1041,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7456633373639849164}
-  - component: {fileID: 7456633373639849165}
+  - component: {fileID: 114925168811731328}
   m_Layer: 0
-  m_Name: PanelLight 1
+  m_Name: PanelLightForFindTheNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1065,7 +1065,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -22.015001, y: 0, z: 0}
---- !u!114 &7456633373639849165
+--- !u!114 &114925168811731328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1074,14 +1074,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7456633373639849171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f966593d3e1372c4eb5168478c3158aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 835d54511c6b84e4ca162798b74330cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: 0
+  expectedValue: 0
+  onMaterial: {fileID: 2100000, guid: b34d4824cf09e3342a9b5923b44beffe, type: 2}
   Off: {fileID: 2100000, guid: 08d3d52eacda9f94f8d8522d0dd1c9d9, type: 2}
-  Red: {fileID: 2100000, guid: b34d4824cf09e3342a9b5923b44beffe, type: 2}
-  Yellow: {fileID: 2100000, guid: eb914b3589d5e0d4f948240057decbba, type: 2}
-  Green: {fileID: 2100000, guid: d40ce0c2c38546446a2cb4ec3d2ebf1a, type: 2}
   Bulb: {fileID: 7456633372722053847}
 --- !u!1 &7456633374060236918
 GameObject:

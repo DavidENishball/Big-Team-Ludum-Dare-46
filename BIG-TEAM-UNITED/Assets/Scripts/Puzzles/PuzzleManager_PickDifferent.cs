@@ -133,7 +133,7 @@ public class PuzzleManager_PickDifferent : PuzzleManager_Base
 
     public void ReceivedVerb(Component source, LifeformManager.EControlVerbs Verb, int data)
     {
-        if (source.gameObject.transform.IsChildOf(this.transform))
+        if (source != null && source.gameObject.transform.IsChildOf(this.transform))
         {
 
             if (!IsCompleted)
@@ -190,6 +190,12 @@ public class PuzzleManager_PickDifferent : PuzzleManager_Base
             list[k] = list[n];
             list[n] = temp;
         }
+    }
+
+
+    private void OnDestroy()
+    {
+        Signals.Get<PerformVerbSignal>().RemoveListener(ReceivedVerb);
     }
 }
 

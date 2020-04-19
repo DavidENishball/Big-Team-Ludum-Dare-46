@@ -36,11 +36,15 @@ public class AxeSimpleButton : MonoBehaviour
     }
 
 
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if(interactable)
         {
-            Controller.SetTrigger("PlayClick");
+            if(Controller)
+            {
+                Controller.SetTrigger("PlayClick");
+            }
+
             Signals.Get<ButtonPressedSignal>().Dispatch(this, ID);
             Signals.Get<PerformVerbSignal>().Dispatch(this, Command, ID);
         }

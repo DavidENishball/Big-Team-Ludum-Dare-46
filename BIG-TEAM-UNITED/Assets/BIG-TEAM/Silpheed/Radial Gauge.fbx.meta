@@ -1,69 +1,14 @@
 fileFormatVersion: 2
-guid: b2653884c35080242b302d708d5f7ec3
+guid: 3d9d5a9e869783e4f91bbe2312f5e22e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Biomass_Ceiling
-    100004: Blast_Door
-    100006: Control_Panel
-    100008: Creature_Tank
-    100010: Intruction_Monitor
-    100012: Room
-    100014: Wall
-    100016: Blast_Door_Bottom
-    100018: Blast_Door_Top
-    100020: Creature_Tank_Glass
-    100022: Creature_Tank_Housing
     400000: //RootNode
-    400002: Biomass_Ceiling
-    400004: Blast_Door
-    400006: Control_Panel
-    400008: Creature_Tank
-    400010: Intruction_Monitor
-    400012: Room
-    400014: Wall
-    400016: Blast_Door_Bottom
-    400018: Blast_Door_Top
-    400020: Creature_Tank_Glass
-    400022: Creature_Tank_Housing
-    2100000: unnamed
-    2300000: Biomass_Ceiling
-    2300002: Blast_Door
-    2300004: Control_Panel
-    2300006: Creature_Tank
-    2300008: Intruction_Monitor
-    2300010: Room
-    2300012: Wall
-    2300014: Blast_Door_Bottom
-    2300016: Blast_Door_Top
-    2300018: Creature_Tank_Glass
-    2300020: Creature_Tank_Housing
-    3300000: Biomass_Ceiling
-    3300002: Blast_Door
-    3300004: Control_Panel
-    3300006: Creature_Tank
-    3300008: Intruction_Monitor
-    3300010: Room
-    3300012: Wall
-    3300014: Blast_Door_Bottom
-    3300016: Blast_Door_Top
-    3300018: Creature_Tank_Glass
-    3300020: Creature_Tank_Housing
-    4300000: Wall
-    4300002: Intruction_Monitor
-    4300004: Blast_Door
-    4300006: Biomass_Ceiling
-    4300008: Creature_Tank
-    4300010: Control_Panel
-    4300012: Room
-    4300014: Blast_Door_Top
-    4300016: Creature_Tank_Glass
-    4300018: Blast_Door_Bottom
-    4300020: Creature_Tank_Housing
-    7400000: Default Take
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -117,7 +62,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -144,7 +89,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

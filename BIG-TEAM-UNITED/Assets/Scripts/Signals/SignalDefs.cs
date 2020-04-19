@@ -50,3 +50,5 @@ public class PuzzleProgress : ASignal<Component> { };
 public class PuzzleComplete : ASignal<Component> { };
 
 public class PuzzleError : ASignal<Component> { };
+
+public class TimeOut : ASignal { };

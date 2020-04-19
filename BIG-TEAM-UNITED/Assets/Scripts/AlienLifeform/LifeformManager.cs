@@ -99,7 +99,10 @@ public class LifeformManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TankReference = FindObjectOfType<LifeformTank>();
+        if (TankReference == null)
+        {
+            TankReference = FindObjectOfType<LifeformTank>();
+        }
 
         if (ListPuzzleSpawnPoint.Count == 0)
         {
@@ -152,10 +155,6 @@ public class LifeformManager : MonoBehaviour
         //Debug.Log(timer.Remaining);
     }
     
-    public void SetCreatureStateVisuals(int StageNumber)
-    {
-        // TODO
-    }
 
     public int GetNumberOfPuzzlesRequiredForStage(int StageNumber)
     {

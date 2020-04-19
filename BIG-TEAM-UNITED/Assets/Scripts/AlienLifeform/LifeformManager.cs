@@ -55,6 +55,14 @@ public class LifeformManager : MonoBehaviour
     public Timer timer;
 
 
+    public List<PuzzleObjectSpawnPoint> ListPuzzleSpawnPoint = new List<PuzzleObjectSpawnPoint>();
+
+    public List<PuzzleManager_Base> SpawnedPuzzles = new List<PuzzleManager_Base>();
+
+    public List<GameObject> PossiblePuzzlePrefabs = new List<GameObject>();
+
+    public int TotalPuzzlesSpawnedEver = 0;
+
     private void Awake()
     {
         // Set up static instance.
@@ -67,6 +75,7 @@ public class LifeformManager : MonoBehaviour
         Signals.Get<PuzzleError>().AddListener(timer.SubtractPenalty);
     }
 
+    
 
 
     public void ReceivedVerb(Component source, EControlVerbs Verb, int data)
@@ -90,7 +99,60 @@ public class LifeformManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TankReference = FindObjectOfType<LifeformTank>();
+        if (TankReference == null)
+        {
+            TankReference = FindObjectOfType<LifeformTank>();
+        }
+
+        if (ListPuzzleSpawnPoint.Count == 0)
+        {
+            // Search
+            Debug.Log("No spawn points provided.  Searching for puzzle spawn points.");
+
+            ListPuzzleSpawnPoint = new List<PuzzleObjectSpawnPoint>(FindObjectsOfType<PuzzleObjectSpawnPoint>());
+        }
+
+        
+    }
+
+    public void SpawnNewPuzzles(int StageNumber)
+    {
+        // To start, one puzzle per stage.
+
+        int NumberOfPuzzlesRequired = GetNumberOfPuzzlesRequiredForStage(StageNumber);
+        ClearAllPuzzles();
+
+        for (int i = 0; i < NumberOfPuzzlesRequired && i < ListPuzzleSpawnPoint.Count; ++i)
+        {
+            PuzzleObjectSpawnPoint SpawnPoint = ListPuzzleSpawnPoint[(i + TotalPuzzlesSpawnedEver) % ListPuzzleSpawnPoint.Count];
+            TotalPuzzlesSpawnedEver++; // Increment this count so the spawn points change.
+
+
+            List<GameObject> ClonedVersion = PossiblePuzzlePrefabs;
+            Shuffle(ClonedVersion);
+
+            GameObject NewPuzzleObject = Instantiate(PossiblePuzzlePrefabs[i% PossiblePuzzlePrefabs.Count], SpawnPoint.transform.position, SpawnPoint.transform.rotation); // Randomize this later.
+            
+            PuzzleManager_Base Manager = NewPuzzleObject.GetComponent<PuzzleManager_Base>();
+
+            if (Manager != null)
+            {
+                SpawnedPuzzles.Add(Manager);
+            }
+        }
+    }
+
+    public void ClearAllPuzzles()
+    {
+        foreach(PuzzleManager_Base Iter in SpawnedPuzzles)
+        {
+            if (Iter != null)
+            {
+                Destroy(Iter.gameObject);
+                // Optionally put a particle here.
+            }
+        }
+        SpawnedPuzzles.Clear();
     }
 
     // Update is called once per frame
@@ -99,10 +161,6 @@ public class LifeformManager : MonoBehaviour
         timer.Tick();
     }
     
-    public void SetCreatureStateVisuals(int StageNumber)
-    {
-        // TODO
-    }
 
     public int GetNumberOfPuzzlesRequiredForStage(int StageNumber)
     {
@@ -115,4 +173,20 @@ public class LifeformManager : MonoBehaviour
         // TODO: make this a table.
         return Mathf.Max(2, 5 - StageNumber);
     }
+
+    // Ripped from the web.
+    void Shuffle<T>(List<T> list)
+    {
+        System.Random random = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            int k = random.Next(n);
+            n--;
+            T temp = list[k];
+            list[k] = list[n];
+            list[n] = temp;
+        }
+    }
+
 }

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using deVoid.Utils;
 using DG.Tweening;
-public class PuzzleManager_Test_PushButton : PuzzleManager_Base
+public class PuzzleManager_Tuning : PuzzleManager_Base
 {
-    // Override this class to make a new puzzle.  Put it on the root of a new prefab.
+    // Generates a 3D space.
 
-    // Start is called before the first frame update
+        // Adds a target point in the 3D space
+        // Generates a start point.
+        // Each dial
 
+    //
 
     public int PressesRequired = 2;
 
@@ -19,6 +22,8 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
     public GameObject SuccessParticle;
 
     public GameObject PanelBase;
+
+    public Knob[] KnobArray = new Knob[3];
 
     public override void PuzzleComplete()
     {
@@ -65,11 +70,5 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
         }
         
         // ignore if not my child.
-    }
-
-    private void OnDestroy()
-    {
-        Signals.Get<PerformVerbSignal>().RemoveListener(ReceivedVerb);
-        Signals.Get<NewStageStartingSignal>().RemoveListener(ResetWithSource);
     }
 }

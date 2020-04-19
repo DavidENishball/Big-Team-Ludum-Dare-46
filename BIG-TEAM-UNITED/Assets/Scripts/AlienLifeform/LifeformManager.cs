@@ -97,7 +97,6 @@ public class LifeformManager : MonoBehaviour
     void Update()
     {
         timer.Tick();
-        Debug.Log(timer.Remaining);
     }
     
     public void SetCreatureStateVisuals(int StageNumber)

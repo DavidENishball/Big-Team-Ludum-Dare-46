@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/BIG-TEAM/tjern/Scenes/tjernyScene.unity
     guid: cf88a7da9da4928e2b79a2dc3b96079a
+  - enabled: 1
+    path: Assets/BIG-TEAM/Silpheed/Game Room Prototype.unity
+    guid: dfc39fe3dabab054ebfaefcb1646fb82
   m_configObjects: {}

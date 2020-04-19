@@ -1,84 +1,48 @@
 fileFormatVersion: 2
-guid: 32fa6cb79313e314380206a86f98239c
+guid: b2653884c35080242b302d708d5f7ec3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Control Panel
-    100004: Creature Tank
-    100006: Room
-    100008: Biomass Ceiling
-    100010: DELETE - TEST CAMERA
-    100012: Blast Door
-    100014: Control Panel Growth
-    100016: Rotational Keyboard
-    100018: Rotational Widget
-    100020: Intruction Monitor
-    100022: Wall
-    100024: Blast Door Bottom
-    100026: Blast Door Top
-    100028: Creature Tank Glass
-    100030: Creature Tank Housing
+    100002: Biomass_Ceiling
+    100004: Blast_Door
+    100006: Control_Panel
+    100008: Creature_Tank
+    100010: Intruction_Monitor
+    100012: Room
+    100014: Wall
     400000: //RootNode
-    400002: Control Panel
-    400004: Creature Tank
-    400006: Room
-    400008: Biomass Ceiling
-    400010: DELETE - TEST CAMERA
-    400012: Blast Door
-    400014: Control Panel Growth
-    400016: Rotational Keyboard
-    400018: Rotational Widget
-    400020: Intruction Monitor
-    400022: Wall
-    400024: Blast Door Bottom
-    400026: Blast Door Top
-    400028: Creature Tank Glass
-    400030: Creature Tank Housing
-    2000000: DELETE - TEST CAMERA
-    2100000: No Name
-    2300000: Control Panel
-    2300002: Creature Tank
-    2300004: Room
-    2300006: Biomass Ceiling
-    2300008: Blast Door
-    2300010: Control Panel Growth
-    2300012: Rotational Keyboard
-    2300014: Rotational Widget
-    2300016: Intruction Monitor
-    2300018: Wall
-    2300020: Blast Door Bottom
-    2300022: Blast Door Top
-    2300024: Creature Tank Glass
-    2300026: Creature Tank Housing
-    3300000: Control Panel
-    3300002: Creature Tank
-    3300004: Room
-    3300006: Biomass Ceiling
-    3300008: Blast Door
-    3300010: Control Panel Growth
-    3300012: Rotational Keyboard
-    3300014: Rotational Widget
-    3300016: Intruction Monitor
-    3300018: Wall
-    3300020: Blast Door Bottom
-    3300022: Blast Door Top
-    3300024: Creature Tank Glass
-    3300026: Creature Tank Housing
-    4300000: Creature Tank
-    4300002: Control Panel
-    4300004: Room
-    4300006: Biomass Ceiling
-    4300008: Control Panel Growth
-    4300010: Blast Door
-    4300012: Rotational Keyboard
-    4300014: Rotational Widget
-    4300016: Intruction Monitor
-    4300018: Wall
-    4300020: Blast Door Top
-    4300022: Creature Tank Glass
-    4300024: Blast Door Bottom
-    4300026: Creature Tank Housing
+    400002: Biomass_Ceiling
+    400004: Blast_Door
+    400006: Control_Panel
+    400008: Creature_Tank
+    400010: Intruction_Monitor
+    400012: Room
+    400014: Wall
+    2100000: unnamed
+    2300000: Biomass_Ceiling
+    2300002: Blast_Door
+    2300004: Control_Panel
+    2300006: Creature_Tank
+    2300008: Intruction_Monitor
+    2300010: Room
+    2300012: Wall
+    3300000: Biomass_Ceiling
+    3300002: Blast_Door
+    3300004: Control_Panel
+    3300006: Creature_Tank
+    3300008: Intruction_Monitor
+    3300010: Room
+    3300012: Wall
+    4300000: Wall
+    4300002: Intruction_Monitor
+    4300004: Blast_Door
+    4300006: Biomass_Ceiling
+    4300008: Creature_Tank
+    4300010: Control_Panel
+    4300012: Room
+    7400000: Default Take
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -133,7 +97,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -160,7 +124,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

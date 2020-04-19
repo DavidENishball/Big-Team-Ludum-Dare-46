@@ -124,6 +124,11 @@ public class LifeformManager : MonoBehaviour
         {
             PuzzleObjectSpawnPoint SpawnPoint = ListPuzzleSpawnPoint[(i + TotalPuzzlesSpawnedEver) % ListPuzzleSpawnPoint.Count];
             TotalPuzzlesSpawnedEver++; // Increment this count so the spawn points change.
+
+
+            List<GameObject> ClonedVersion = PossiblePuzzlePrefabs;
+            Shuffle(ClonedVersion);
+
             GameObject NewPuzzleObject = Instantiate(PossiblePuzzlePrefabs[i% PossiblePuzzlePrefabs.Count], SpawnPoint.transform.position, SpawnPoint.transform.rotation); // Randomize this later.
             
             PuzzleManager_Base Manager = NewPuzzleObject.GetComponent<PuzzleManager_Base>();
@@ -167,4 +172,20 @@ public class LifeformManager : MonoBehaviour
         // TODO: make this a table.
         return Mathf.Max(2, 5 - StageNumber);
     }
+
+    // Ripped from the web.
+    void Shuffle<T>(List<T> list)
+    {
+        System.Random random = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            int k = random.Next(n);
+            n--;
+            T temp = list[k];
+            list[k] = list[n];
+            list[n] = temp;
+        }
+    }
+
 }

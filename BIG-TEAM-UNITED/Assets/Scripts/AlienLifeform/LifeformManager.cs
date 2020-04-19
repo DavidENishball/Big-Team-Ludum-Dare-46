@@ -111,6 +111,8 @@ public class LifeformManager : MonoBehaviour
 
             ListPuzzleSpawnPoint = new List<PuzzleObjectSpawnPoint>(FindObjectsOfType<PuzzleObjectSpawnPoint>());
         }
+
+        
     }
 
     public void SpawnNewPuzzles(int StageNumber)

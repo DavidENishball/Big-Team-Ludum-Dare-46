@@ -66,4 +66,10 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
         
         // ignore if not my child.
     }
+
+    private void OnDestroy()
+    {
+        Signals.Get<PerformVerbSignal>().RemoveListener(ReceivedVerb);
+        Signals.Get<NewStageStartingSignal>().RemoveListener(ResetWithSource);
+    }
 }

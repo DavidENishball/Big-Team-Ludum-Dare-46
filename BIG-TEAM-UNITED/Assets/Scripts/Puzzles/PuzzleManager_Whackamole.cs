@@ -33,8 +33,11 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
     public int molesToWin = 25;
     public List<AxeSimpleButton> moles;
     List<Mole> moleList;
-    public Material VictoryMaterial;
-    public Material NeutralMaterial;
+    //public Material VictoryMaterial;
+    //public Material NeutralMaterial;
+    public Color victoryColor;
+    public Color weakColor;
+    public Color strongColor;
     public Object explosionEffect;
 
     private void Awake()
@@ -51,6 +54,8 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
     void Start()
     {
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
+        foreach(Mole m in moleList)
+            m.mole.GetComponent<MeshRenderer>().material.color = Color.Lerp(weakColor, strongColor, molesHit / (float)molesToWin);
     }
 
     private void Update()
@@ -105,7 +110,8 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
                 {
                     m.moleMode = Mole.Mole_CurrentMode.LOWERED;
                     m.animationTime = 0f;
-                    m.mole.GetComponent<MeshRenderer>().material = NeutralMaterial;
+                    //m.mole.GetComponent<MeshRenderer>().material = NeutralMaterial;
+                    m.mole.GetComponent<MeshRenderer>().material.color = Color.Lerp(weakColor, strongColor, molesHit / (float) molesToWin);
                     m.struck = false;
                 }
                 break;
@@ -114,7 +120,7 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
 
     public void ReceivedVerb(Component source, LifeformManager.EControlVerbs Verb, int data)
     {
-        if (!puzzleActive)
+        if (!puzzleActive || IsCompleted)
             return;
 
         if (source.gameObject.transform.IsChildOf(this.transform))
@@ -132,7 +138,14 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
 
             molesHit++;
             mole.struck = true;
-            mole.mole.GetComponent<MeshRenderer>().material = VictoryMaterial;
+            foreach (Mole m in moleList)
+            {
+                if (m.mole.GetComponent<MeshRenderer>().material.color != victoryColor)
+                {
+                    m.mole.GetComponent<MeshRenderer>().material.color = Color.Lerp(weakColor, strongColor, molesHit / (float)molesToWin);
+                }
+            }
+            mole.mole.GetComponent<MeshRenderer>().material.color = victoryColor;
             GameObject go = (GameObject) Instantiate(explosionEffect, mole.mole.position, transform.rotation);//spawn explosion
             go.transform.localScale = mole.mole.lossyScale;
 
@@ -147,7 +160,7 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
                         m.animationTime = 0f;
                         m.moleMode = Mole.Mole_CurrentMode.RAISING;
                     }
-                    m.mole.GetComponent<MeshRenderer>().material = VictoryMaterial;
+                    m.mole.GetComponent<MeshRenderer>().material.color = victoryColor;
                 }
             }
         }

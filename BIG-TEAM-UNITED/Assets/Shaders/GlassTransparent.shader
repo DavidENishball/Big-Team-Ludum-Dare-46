@@ -140,7 +140,7 @@ Shader "Glass/GlassTransparent" {
                 float3 normalLocal = normal;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
-                float v_refractionIntensity = _RefractionIntensity + sin((_Time + (i.screenPos.y / 4.0) + (i.screenPos.x / 20.0)) * 25.0) * 0.01;
+                float v_refractionIntensity = _RefractionIntensity + sin((_Time + (i.screenPos.y / 4.0) + (i.screenPos.x / 20.0)) * 25.0) * 0.0025;
                 float2 refraction = (v_refractionIntensity*mul( UNITY_MATRIX_V, float4(normalDirection,0) ).xyz.rgb.rg);
                 float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + refraction;
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);

@@ -670,7 +670,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 41.8
+  field of view: 72
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -716,10 +716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 1
   ZoomFOV: 40
-  MaximumHeight: 2
-  MinimumHeight: -2
-  MaximumLateral: 2
-  MinimumLateral: -2
+  MaximumHeight: 0.3
+  MinimumHeight: -0.4
+  MaximumLateral: 0.8
+  MinimumLateral: -0.9
 --- !u!43 &1845587987
 Mesh:
   m_ObjectHideFlags: 0

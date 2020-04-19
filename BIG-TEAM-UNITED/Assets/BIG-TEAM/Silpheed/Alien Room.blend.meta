@@ -11,6 +11,10 @@ ModelImporter:
     100010: Intruction_Monitor
     100012: Room
     100014: Wall
+    100016: Blast_Door_Bottom
+    100018: Blast_Door_Top
+    100020: Creature_Tank_Glass
+    100022: Creature_Tank_Housing
     400000: //RootNode
     400002: Biomass_Ceiling
     400004: Blast_Door
@@ -19,6 +23,10 @@ ModelImporter:
     400010: Intruction_Monitor
     400012: Room
     400014: Wall
+    400016: Blast_Door_Bottom
+    400018: Blast_Door_Top
+    400020: Creature_Tank_Glass
+    400022: Creature_Tank_Housing
     2100000: unnamed
     2300000: Biomass_Ceiling
     2300002: Blast_Door
@@ -27,6 +35,10 @@ ModelImporter:
     2300008: Intruction_Monitor
     2300010: Room
     2300012: Wall
+    2300014: Blast_Door_Bottom
+    2300016: Blast_Door_Top
+    2300018: Creature_Tank_Glass
+    2300020: Creature_Tank_Housing
     3300000: Biomass_Ceiling
     3300002: Blast_Door
     3300004: Control_Panel
@@ -34,6 +46,10 @@ ModelImporter:
     3300008: Intruction_Monitor
     3300010: Room
     3300012: Wall
+    3300014: Blast_Door_Bottom
+    3300016: Blast_Door_Top
+    3300018: Creature_Tank_Glass
+    3300020: Creature_Tank_Housing
     4300000: Wall
     4300002: Intruction_Monitor
     4300004: Blast_Door
@@ -41,6 +57,10 @@ ModelImporter:
     4300008: Creature_Tank
     4300010: Control_Panel
     4300012: Room
+    4300014: Blast_Door_Top
+    4300016: Creature_Tank_Glass
+    4300018: Blast_Door_Bottom
+    4300020: Creature_Tank_Housing
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

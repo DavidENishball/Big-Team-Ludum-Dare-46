@@ -44,7 +44,9 @@ public class State_LifeForm_Growing : IState
         PuzzleErrorsPerformed = 0;
         PuzzleErrorsAllowed = owner.GetNumberOfFailuresAllowedForStage(StageNumber);
         IsStageFailed = false;
+        owner.SpawnNewPuzzles(StageNumber);
         Signals.Get<NewStageStartingSignal>().Dispatch(this);
+
     }
 
     public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)

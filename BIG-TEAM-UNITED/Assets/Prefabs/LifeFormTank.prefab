@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 6421269920051486046}
   - component: {fileID: 6421269920051486053}
   - component: {fileID: 679336764}
+  - component: {fileID: 1370460427086796441}
   m_Layer: 0
   m_Name: The Egg
   m_TagString: Untagged
@@ -2604,6 +2605,21 @@ MonoBehaviour:
   SpinSpeed: 0
   MaxSpeed: 120
 --- !u!114 &679336764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421269920051486047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7edc71520b62374bb8328c8fe7b1069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseStageScale: 0.1
+  deathStageNumber: 0
+  StageObjects: []
+--- !u!114 &1370460427086796441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

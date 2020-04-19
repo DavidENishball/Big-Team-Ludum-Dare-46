@@ -50,6 +50,14 @@ public class LifeformManager : MonoBehaviour
     public ETankState TankState = ETankState.DISMISSED;
 
 
+    public List<PuzzleObjectSpawnPoint> ListPuzzleSpawnPoint = new List<PuzzleObjectSpawnPoint>();
+
+    public List<PuzzleManager_Base> SpawnedPuzzles = new List<PuzzleManager_Base>();
+
+    public List<GameObject> PossiblePuzzlePrefabs = new List<GameObject>();
+
+    public int TotalPuzzlesSpawnedEver = 0;
+
     private void Awake()
     {
         // Set up static instance.
@@ -57,6 +65,7 @@ public class LifeformManager : MonoBehaviour
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
     }
 
+    
 
 
     public void ReceivedVerb(Component source, EControlVerbs Verb, int data)
@@ -81,6 +90,49 @@ public class LifeformManager : MonoBehaviour
     void Start()
     {
         TankReference = FindObjectOfType<LifeformTank>();
+
+        if (ListPuzzleSpawnPoint.Count == 0)
+        {
+            // Search
+            Debug.Log("No spawn points provided.  Searching for puzzle spawn points.");
+
+            ListPuzzleSpawnPoint = new List<PuzzleObjectSpawnPoint>(FindObjectsOfType<PuzzleObjectSpawnPoint>());
+        }
+    }
+
+    public void SpawnNewPuzzles(int StageNumber)
+    {
+        // To start, one puzzle per stage.
+
+        int NumberOfPuzzlesRequired = GetNumberOfPuzzlesRequiredForStage(StageNumber);
+        ClearAllPuzzles();
+
+        for (int i = 0; i < NumberOfPuzzlesRequired && i < ListPuzzleSpawnPoint.Count; ++i)
+        {
+            PuzzleObjectSpawnPoint SpawnPoint = ListPuzzleSpawnPoint[(i + TotalPuzzlesSpawnedEver) % ListPuzzleSpawnPoint.Count];
+            TotalPuzzlesSpawnedEver++; // Increment this count so the spawn points change.
+            GameObject NewPuzzleObject = Instantiate(PossiblePuzzlePrefabs[i% PossiblePuzzlePrefabs.Count], SpawnPoint.transform.position, SpawnPoint.transform.rotation); // Randomize this later.
+            
+            PuzzleManager_Base Manager = NewPuzzleObject.GetComponent<PuzzleManager_Base>();
+
+            if (Manager != null)
+            {
+                SpawnedPuzzles.Add(Manager);
+            }
+        }
+    }
+
+    public void ClearAllPuzzles()
+    {
+        foreach(PuzzleManager_Base Iter in SpawnedPuzzles)
+        {
+            if (Iter != null)
+            {
+                Destroy(Iter.gameObject);
+                // Optionally put a particle here.
+            }
+        }
+        SpawnedPuzzles.Clear();
     }
 
     // Update is called once per frame

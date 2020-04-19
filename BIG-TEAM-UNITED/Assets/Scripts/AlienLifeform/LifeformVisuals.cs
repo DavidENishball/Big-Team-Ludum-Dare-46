@@ -33,6 +33,10 @@ public class LifeformVisuals : MonoBehaviour
     private void SetObjectIfPossible(int stage)
     {
         int stageIndex = Mathf.Clamp(stage - 1, 0, StageObjects.Length - 1);
+        if (stageIndex < 0)
+        {
+            return;
+        }
         StageObjects[stageIndex].SetActive(true);
         StageObjects[stageIndex].transform.localScale = Vector3.one * BaseStageScale * stage;
     }

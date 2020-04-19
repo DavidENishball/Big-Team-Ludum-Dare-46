@@ -37,4 +37,5 @@ public class PuzzleManager_Base : MonoBehaviour
         // Randomize stuff?
         // Prompt the player?
     }
+
 }

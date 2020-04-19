@@ -4,22 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxeSimpleButton : MonoBehaviour
+public class AxeSimpleLightButton : MonoBehaviour
 {
-    public Animator Controller;
     protected bool interactable = true;
     public int ID = 0;
     public LifeformManager.EControlVerbs Command; // Using an enum so we can pick it in the editor.
 
+    public Material Dull, Red, Yellow, Green;
 
-    void Awake()
+
+    protected virtual void Awake()
     {
         Signals.Get<EnableButtonSignal>().AddListener(EnableButton);
         Signals.Get<DisableButtonSignal>().AddListener(DisableButton);
     }
 
 
-    public void EnableButton(Component ArgButton, int BID)
+    protected virtual void EnableButton(Component ArgButton, int BID)
     {
         if(ArgButton == this)
         {
@@ -27,7 +28,7 @@ public class AxeSimpleButton : MonoBehaviour
         }
     }
 
-    public void DisableButton(Component ArgButton, int BID)
+    protected virtual void DisableButton(Component ArgButton, int BID)
     {
         if (ArgButton == this)
         {
@@ -36,14 +37,10 @@ public class AxeSimpleButton : MonoBehaviour
     }
 
 
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if(interactable)
         {
-            if (Controller != null)
-            {
-                Controller.SetTrigger("PlayClick");
-            }
             Signals.Get<ButtonPressedSignal>().Dispatch(this, ID);
             Signals.Get<PerformVerbSignal>().Dispatch(this, Command, ID);
         }

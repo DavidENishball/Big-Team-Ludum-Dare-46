@@ -86,6 +86,7 @@ Shader "Glass/GlassTransparent" {
                 float3 tangentDir : TEXCOORD5;
                 float3 bitangentDir : TEXCOORD6;
                 float4 screenPos : TEXCOORD7;
+                float3 color : COLOR;
                 LIGHTING_COORDS(8,9)
                 UNITY_FOG_COORDS(10)
                 #if defined(LIGHTMAP_ON) || defined(UNITY_SHOULD_SAMPLE_SH)
@@ -97,6 +98,14 @@ Shader "Glass/GlassTransparent" {
                 o.uv0 = v.texcoord0;
                 o.uv1 = v.texcoord1;
                 o.uv2 = v.texcoord2;
+
+                float3 viewDir = normalize(ObjSpaceViewDir(v.vertex));
+                float dotProduct = 1 - dot(v.normal, viewDir);
+                float rimWidth = 1.0;
+
+                o.color = smoothstep(1 - rimWidth, 1.0, dotProduct);
+                o.color *= float3(0.0, 1.0, 0.0);
+
                 #ifdef LIGHTMAP_ON
                     o.ambientOrLightmapUV.xy = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
                     o.ambientOrLightmapUV.zw = 0;
@@ -131,7 +140,7 @@ Shader "Glass/GlassTransparent" {
                 float3 normalLocal = normal;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
-                float v_refractionIntensity = _RefractionIntensity;
+                float v_refractionIntensity = _RefractionIntensity + sin((_Time + (i.screenPos.y / 4.0) + (i.screenPos.x / 20.0)) * 25.0) * 0.01;
                 float2 refraction = (v_refractionIntensity*mul( UNITY_MATRIX_V, float4(normalDirection,0) ).xyz.rgb.rg);
                 float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + refraction;
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
@@ -264,7 +273,7 @@ Shader "Glass/GlassTransparent" {
                 float3 indirectDiffuse = float3(0,0,0);
                 indirectDiffuse += gi.indirect.diffuse;
                 diffuseColor *= 1-specularMonochrome;
-                float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
+                float3 diffuse = (directDiffuse + indirectDiffuse) * i.color;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
                 float v_specularOpacity = _SpecularOpacity;
@@ -278,6 +287,12 @@ Shader "Glass/GlassTransparent" {
                 float Opacity = saturate((saturate((saturate(dust).r+saturate(((insideLight/5.0)+saturate(((speculareambiantlight+(1.0 - insideLine))*v_specularOpacity))+blackline)).r))+(node_2111.g/1.5)));
                 fixed4 finalRGBA = fixed4(lerp(sceneColor.rgb, finalColor,Opacity),1);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+                finalRGBA.g *= 1.8;
+                finalRGBA.b *= 1.2;
                 return finalRGBA;
             }
             ENDCG
@@ -399,7 +414,7 @@ Shader "Glass/GlassTransparent" {
                 float3 normalLocal = normal;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
-                float v_refractionIntensity = _RefractionIntensity;
+                float v_refractionIntensity = _RefractionIntensity + sin(i.screenPos.x) * 10.0;
                 float2 refraction = (v_refractionIntensity*mul( UNITY_MATRIX_V, float4(normalDirection,0) ).xyz.rgb.rg);
                 float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + refraction;
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
@@ -578,6 +593,7 @@ Shader "Glass/GlassTransparent" {
                 diffColor *= (1.0-specularMonochrome);
                 float Gloss = 0.95;
                 float roughness = 1.0 - Gloss;
+
                 o.Albedo = diffColor + specColor * roughness * roughness * 0.5;
                 
                 return UnityMetaFragment( o );

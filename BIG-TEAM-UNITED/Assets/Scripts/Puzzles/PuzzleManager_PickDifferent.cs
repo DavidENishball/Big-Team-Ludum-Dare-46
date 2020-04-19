@@ -197,5 +197,9 @@ public class PuzzleManager_PickDifferent : PuzzleManager_Base
     {
         Signals.Get<PerformVerbSignal>().RemoveListener(ReceivedVerb);
     }
+
+    // Ripped from the web.
+
+
 }
 

@@ -388,6 +388,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1277227586318411519, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300012, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227586426107617, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300012, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227586542222289, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300012, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227587563010713, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300012, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
     - target: {fileID: 1277227587820137249, guid: 7f7fd05c934415648b1827688f48122c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -448,5 +468,60 @@ PrefabInstance:
       propertyPath: m_Name
       value: KratosVerAlienRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 1277227587821464321, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300012, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227587821464325, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300008, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227587821464327, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300010, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227587821464329, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300004, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227587821464333, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227587821464335, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 1277227588136943527, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300012, guid: dc6baea4f28d01d4692081acd7a0fab6, type: 3}
+    - target: {fileID: 3590776153989649801, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300014, guid: 84a0f6c400116cd48bd7254bc3a49928, type: 3}
+    - target: {fileID: 3590776153989649803, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300018, guid: 84a0f6c400116cd48bd7254bc3a49928, type: 3}
+    - target: {fileID: 3590776153989649805, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300016, guid: 84a0f6c400116cd48bd7254bc3a49928, type: 3}
+    - target: {fileID: 3590776153989649907, guid: 7f7fd05c934415648b1827688f48122c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300020, guid: 84a0f6c400116cd48bd7254bc3a49928, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f7fd05c934415648b1827688f48122c, type: 3}

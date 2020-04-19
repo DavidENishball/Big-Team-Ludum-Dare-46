@@ -1,85 +1,14 @@
 fileFormatVersion: 2
-guid: 32fa6cb79313e314380206a86f98239c
+guid: 3d9d5a9e869783e4f91bbe2312f5e22e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Control Panel
-    100004: Creature Tank
-    100006: Room
-    100008: Biomass Ceiling
-    100010: DELETE - TEST CAMERA
-    100012: Blast Door
-    100014: Control Panel Growth
-    100016: Rotational Keyboard
-    100018: Rotational Widget
-    100020: Intruction Monitor
-    100022: Wall
-    100024: Blast Door Bottom
-    100026: Blast Door Top
-    100028: Creature Tank Glass
-    100030: Creature Tank Housing
     400000: //RootNode
-    400002: Control Panel
-    400004: Creature Tank
-    400006: Room
-    400008: Biomass Ceiling
-    400010: DELETE - TEST CAMERA
-    400012: Blast Door
-    400014: Control Panel Growth
-    400016: Rotational Keyboard
-    400018: Rotational Widget
-    400020: Intruction Monitor
-    400022: Wall
-    400024: Blast Door Bottom
-    400026: Blast Door Top
-    400028: Creature Tank Glass
-    400030: Creature Tank Housing
-    2000000: DELETE - TEST CAMERA
     2100000: No Name
-    2300000: Control Panel
-    2300002: Creature Tank
-    2300004: Room
-    2300006: Biomass Ceiling
-    2300008: Blast Door
-    2300010: Control Panel Growth
-    2300012: Rotational Keyboard
-    2300014: Rotational Widget
-    2300016: Intruction Monitor
-    2300018: Wall
-    2300020: Blast Door Bottom
-    2300022: Blast Door Top
-    2300024: Creature Tank Glass
-    2300026: Creature Tank Housing
-    3300000: Control Panel
-    3300002: Creature Tank
-    3300004: Room
-    3300006: Biomass Ceiling
-    3300008: Blast Door
-    3300010: Control Panel Growth
-    3300012: Rotational Keyboard
-    3300014: Rotational Widget
-    3300016: Intruction Monitor
-    3300018: Wall
-    3300020: Blast Door Bottom
-    3300022: Blast Door Top
-    3300024: Creature Tank Glass
-    3300026: Creature Tank Housing
-    4300000: Creature Tank
-    4300002: Control Panel
-    4300004: Room
-    4300006: Biomass Ceiling
-    4300008: Control Panel Growth
-    4300010: Blast Door
-    4300012: Rotational Keyboard
-    4300014: Rotational Widget
-    4300016: Intruction Monitor
-    4300018: Wall
-    4300020: Blast Door Top
-    4300022: Creature Tank Glass
-    4300024: Blast Door Bottom
-    4300026: Creature Tank Housing
-    2186277476908879412: ImportLogs
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1

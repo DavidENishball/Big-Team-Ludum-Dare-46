@@ -40,7 +40,10 @@ public class AxeSimpleButton : MonoBehaviour
     {
         if(interactable)
         {
-            Controller.SetTrigger("PlayClick");
+            if (Controller != null)
+            {
+                Controller.SetTrigger("PlayClick");
+            }
             Signals.Get<ButtonPressedSignal>().Dispatch(this, ID);
             Signals.Get<PerformVerbSignal>().Dispatch(this, Command, ID);
         }

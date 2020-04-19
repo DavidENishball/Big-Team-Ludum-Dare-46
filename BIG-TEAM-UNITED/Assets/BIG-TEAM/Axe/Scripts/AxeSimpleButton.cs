@@ -9,6 +9,8 @@ public class AxeSimpleButton : MonoBehaviour
     public Animator Controller;
     protected bool interactable = true;
     public int ID = 0;
+    public LifeformManager.EControlVerbs Command; // Using an enum so we can pick it in the editor.
+
 
     void Awake()
     {
@@ -17,17 +19,17 @@ public class AxeSimpleButton : MonoBehaviour
     }
 
 
-    public void EnableButton(int BID)
+    public void EnableButton(Component ArgButton, int BID)
     {
-        if(BID == ID)
+        if(ArgButton == this)
         {
             interactable = true;
         }
     }
 
-    public void DisableButton(int BID)
+    public void DisableButton(Component ArgButton, int BID)
     {
-        if (BID == ID)
+        if (ArgButton == this)
         {
             interactable = false;
         }
@@ -39,7 +41,8 @@ public class AxeSimpleButton : MonoBehaviour
         if(interactable)
         {
             Controller.SetTrigger("PlayClick");
-            Signals.Get<ButtonPressedSignal>().Dispatch(ID);
+            Signals.Get<ButtonPressedSignal>().Dispatch(this, ID);
+            Signals.Get<PerformVerbSignal>().Dispatch(this, Command, ID);
         }
     }
 

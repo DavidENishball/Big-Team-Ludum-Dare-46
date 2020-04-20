@@ -92,7 +92,10 @@ public class LifeformVisuals : MonoBehaviour
             DeactivateAll();
             ChosenVisualsStruct.CreatureVisuals.SetActive(true);
             ChosenVisualsStruct.CreatureVisuals.transform.localScale = Vector3.one * (ChosenVisualsStruct.BaseScale + ChosenVisualsStruct.ScalePerStage * (stagesSinceThisEvolutionStarted + 1));
+
+            Signals.Get<LifeformVisualsStepSet>().Dispatch(EvolutionIndex);
         } 
+
     }
 
     private void DeactivateAll()

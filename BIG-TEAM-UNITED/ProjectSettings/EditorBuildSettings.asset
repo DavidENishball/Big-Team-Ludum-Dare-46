@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/BIG-TEAM/tjern/Scenes/tjernyScene.unity
     guid: cf88a7da9da4928e2b79a2dc3b96079a
-  - enabled: 1
+  - enabled: 0
     path: Assets/BIG-TEAM/Silpheed/Game Room Prototype.unity
     guid: dfc39fe3dabab054ebfaefcb1646fb82
+  - enabled: 1
+    path: Assets/Scenes/GameSceneV2.unity
+    guid: aaab4d23c8d20f04799378b78154e2c2
   m_configObjects: {}

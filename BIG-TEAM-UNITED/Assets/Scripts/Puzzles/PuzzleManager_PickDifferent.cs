@@ -140,12 +140,14 @@ public class PuzzleManager_PickDifferent : PuzzleManager_Base
             {
                 if (MarkedButtons.Contains(source.gameObject))
                 {
+                    SFXPlayer.Instance.PlayButtonNoise(source.transform.position);
                     if (AlreadyPickedButtons.Contains(source.gameObject) == false)
                     {
                         AlreadyPickedButtons.Add(source.gameObject);
                         PressesReceived++;
                         Instantiate(SuccessParticle, source.transform);
                         source.transform.DOShakePosition(0.2f, 0.01f, 30);
+                        SFXPlayer.Instance.PositiveSound(source.transform.position);
                         MeshRenderer FoundRenderer = source.gameObject.GetComponentInChildren<MeshRenderer>();
                         if (FoundRenderer) 
                         {
@@ -162,6 +164,7 @@ public class PuzzleManager_PickDifferent : PuzzleManager_Base
                 else
                 {
                     PuzzleError();
+                    SFXPlayer.Instance.NegativeSound(source.transform.position);
                     if (ErrorParticle != null)
                     {
                         Instantiate(ErrorParticle, source.transform);
@@ -170,6 +173,10 @@ public class PuzzleManager_PickDifferent : PuzzleManager_Base
                 }
 
 
+            }
+            else if(MarkedButtons.Contains(source.gameObject))
+            {
+                SFXPlayer.Instance.PlayButtonNoise(source.transform.position);
             }
             // It's my child.
         }

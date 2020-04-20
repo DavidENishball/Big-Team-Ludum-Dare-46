@@ -13,14 +13,21 @@ public class SimonSaysLight : MonoBehaviour
     public Material Off, Red, Yellow, Green;
     public Renderer Bulb;
 
-    public SignalHub SSSignals = SimonSaysPuzzle.SimonSaysHub;
+    public SignalHub SSSignals = null;
 
-    void Awake()
+    private void Start()
     {
+        SimonSaysPuzzle Parent = GetComponentInParent<SimonSaysPuzzle>();
+
+        if (Parent)
+        {
+            SSSignals = Parent.SimonSaysHub;
+        }
         SSSignals.Get<LightOnGreenSignal>().AddListener(OnGreen);
         SSSignals.Get<LightOnYellowSignal>().AddListener(OnYellow);
         SSSignals.Get<LightOnRedSignal>().AddListener(OnRed);
         SSSignals.Get<LightOffSignal>().AddListener(OffDull);
+         
     }
 
 

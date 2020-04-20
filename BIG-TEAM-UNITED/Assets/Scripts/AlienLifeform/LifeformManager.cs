@@ -49,7 +49,7 @@ public class LifeformManager : MonoBehaviour
     public ETankState TankState = ETankState.DISMISSED;
 
     public float TimerStartValue = 120f;
-    public float BonusTimePerStage = 30f;
+    public float BonusTimePerStage = 0f;
     public float PenaltyPerError = 5f;
     public float DangerTimeKickinValue = 10f;
     public Timer timer;
@@ -63,12 +63,14 @@ public class LifeformManager : MonoBehaviour
 
     public int TotalPuzzlesSpawnedEver = 0;
 
+    public int PuzzlesSpawnedThisStage = 0;
+
     private void Awake()
     {
         // Set up static instance.
         static_instance = this;
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
-
+        Signals.Get<TimeOut>().AddListener(HandleTimeExpired);
         // Set up timer
         timer = new Timer(TimerStartValue, BonusTimePerStage, PenaltyPerError, DangerTimeKickinValue);
     }
@@ -112,6 +114,14 @@ public class LifeformManager : MonoBehaviour
         Signals.Get<PuzzleError>().AddListener(timer.SubtractPenalty);
         Signals.Get<DismissTankSignal>().AddListener(timer.DisableTimer);
         Signals.Get<ReadyTankSignal>().AddListener(timer.ResetAndEnable);
+    }
+
+    public void HandleTimeExpired()
+    {
+        if (!(stateMachine.GetState() is State_LifeForm_Destroyed))
+        {
+            stateMachine.ChangeState(new State_LifeForm_Destroyed(this));
+        }
     }
 
     public void SpawnNewPuzzles(int StageNumber)
@@ -164,7 +174,10 @@ public class LifeformManager : MonoBehaviour
     public int GetNumberOfPuzzlesRequiredForStage(int StageNumber)
     {
         // TODO: make this a table.
-        return Mathf.Max(1, StageNumber / 2);
+        float HalfOfStage = (float)(StageNumber) / 2.0f;
+
+        
+        return Mathf.Max(1, (int)Mathf.Ceil(HalfOfStage));
     }
 
     public int GetNumberOfFailuresAllowedForStage(int StageNumber)

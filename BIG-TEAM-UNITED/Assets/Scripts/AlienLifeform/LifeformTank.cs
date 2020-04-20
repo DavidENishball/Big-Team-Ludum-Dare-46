@@ -59,6 +59,7 @@ public class LifeformTank : MonoBehaviour
         Lifeform.SetActive(true);
 
         // TODO: LifeForm.Reset();
+        SFXPlayer.Instance.TubeRaise(transform.position);
         TankGlass.transform.DOMove(ReadyPosition, 1.0f).SetEase(Ease.OutCirc).OnComplete(OnSummonTank);
     }
 
@@ -75,6 +76,7 @@ public class LifeformTank : MonoBehaviour
         Debug.Log("dismissing tank: ");
 
         workingLock = true;
+        SFXPlayer.Instance.TubeFlush(transform.position);
         TankGlass.transform.DOMove(DismissedPosition, 1.0f).SetEase(Ease.InCirc).OnComplete(OnDismissFinished);
     }
 

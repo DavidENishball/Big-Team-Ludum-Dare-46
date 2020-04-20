@@ -38,7 +38,7 @@ public class AxeSimpleSlider : MonoBehaviour
     /// <summary>
     /// used to keep track of being currently active
     /// </summary>
-    bool pressed = false;
+    protected bool pressed = false;
     /// <summary>
     /// ordered list of transforms to snal the slider to
     /// </summary>
@@ -76,7 +76,7 @@ public class AxeSimpleSlider : MonoBehaviour
 
 
     // responding to mouseclicks
-    private void Update()
+    protected virtual void Update()
     {
         if (pressed)
         {
@@ -95,7 +95,7 @@ public class AxeSimpleSlider : MonoBehaviour
         lastValue = Value;
     }
 
-    private void UpdateValueBasedOnPosition()
+    protected void UpdateValueBasedOnPosition()
     {
 
         //value = Mathf.Lerp(minValue, maxValue, t);

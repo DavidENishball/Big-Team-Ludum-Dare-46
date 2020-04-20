@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DustMap:
         m_Texture: {fileID: 2800000, guid: 50964c18250d3914cb5d60e7894ecacc, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.01, y: 0.01}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
@@ -53,7 +53,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: a34d5f5974178c141b5396cd1eadf754, type: 3}
-        m_Scale: {x: 0.5, y: 0.5}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -74,7 +74,7 @@ Material:
     - _DstBlend: 0
     - _DustFadeDistance: 0.7
     - _DustMaxIntensity: 0.575
-    - _GlassSize: 0.84
+    - _GlassSize: 0.084
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

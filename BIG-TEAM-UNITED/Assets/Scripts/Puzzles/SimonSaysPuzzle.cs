@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SimonSaysPuzzle : PuzzleManager_Base
 {
-    public static SignalHub SimonSaysHub = new SignalHub();
+    public SignalHub SimonSaysHub = new SignalHub();
 
     public List<SimonSaysButton> LightButtons;
 
@@ -76,6 +76,8 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                 if (_lastInputTimer > InputWaitTime && !Guessing && !Hinting)
                 {
                     SimonSaysHub.Get<FlashLightSignal>().Dispatch(TargetSequence[CurrentHintID], GetFlashesForDifficulty());
+
+                    SFXPlayer.Instance.Beep(transform.position);
                     Hinting = true;
                 }
 
@@ -96,6 +98,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                         else
                         {
                             SimonSaysHub.Get<FlashLightSignal>().Dispatch(TargetSequence[CurrentHintID], GetFlashesForDifficulty());
+                            SFXPlayer.Instance.Beep(transform.position);
                             _lastHintTimer = 0;
                         }
 
@@ -117,7 +120,14 @@ public class SimonSaysPuzzle : PuzzleManager_Base
 
     public override void PuzzleComplete()
     {
+        // Activate all lights on puzzle complete
+        for (int i = 9; i <= 50; i++)
+        {
+            SimonSaysHub.Get<LightOnGreenSignal>().Dispatch(i);
+        }
+
         base.PuzzleComplete();
+        SFXPlayer.Instance.PositiveSound(transform.position);
     }
 
     public override void PuzzleError()
@@ -157,17 +167,17 @@ public class SimonSaysPuzzle : PuzzleManager_Base
 
     public int GetFlashesForDifficulty()
     {
-        int count = 0;
+        int count = 1;
         switch(Level)
         {
             case (SimonPuzzleLevel.Start):
-                count = 3;
+                count = 1;
                 break;
             case (SimonPuzzleLevel.Easy):
-                count = 3;
+                count = 1;
                 break;
             case (SimonPuzzleLevel.Medium):
-                count = 2;
+                count = 1;
                 break;
             case (SimonPuzzleLevel.Hard):
                 count = 1;
@@ -180,16 +190,41 @@ public class SimonSaysPuzzle : PuzzleManager_Base
         return count;
     }
 
+    public float GetFlashDurationPerDifficulyLevel()
+    {
+        float duration = 0;
+        switch (Level)
+        {
+            case (SimonPuzzleLevel.Start):
+                duration = 0.3f;
+                break;
+            case (SimonPuzzleLevel.Easy):
+                duration = 0.25f;
+                break;
+            case (SimonPuzzleLevel.Medium):
+                duration = 0.2f;
+                break;
+            case (SimonPuzzleLevel.Hard):
+                duration = 0.15f;
+                break;
+            case (SimonPuzzleLevel.Complete):
+                duration = 0.0f;
+                break;
+        }
+
+        return duration;
+    }
+
     public int GetSequenceLengthForDifficulty()
     {
         int count = 0;
         switch (Level)
         {
             case (SimonPuzzleLevel.Start):
-                count = 3;
+                count = 4;
                 break;
             case (SimonPuzzleLevel.Easy):
-                count = 3;
+                count = 4;
                 break;
             case (SimonPuzzleLevel.Medium):
                 count = 4;
@@ -265,11 +300,12 @@ public class SimonSaysPuzzle : PuzzleManager_Base
             {
                 SimonSaysHub.Get<CorrectLightSignal>().Dispatch(BID);
                 CorrectInputID++;
+                SFXPlayer.Instance.Beep(transform.position);
                 if(CorrectInputID >= TargetSequence.Count)
                 {
                     SimonSaysHub.Get<LightOnGreenSignal>().Dispatch(10 + (int)Level);
                     Level = Level + 1;
-                    if(Level == SimonPuzzleLevel.Complete)
+                    if(Level == SimonPuzzleLevel.Easy) // Hijacking this to make the puzzl shorter.
                     {
                         ClearLights();
                         PuzzleComplete();
@@ -280,6 +316,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                         Guessing = false;
                         Hinting = false;
                         GenerateSequence();
+                        SFXPlayer.Instance.PositiveSound(transform.position);
                     }
                 
                 }
@@ -287,6 +324,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
             else
             {
                 SimonSaysHub.Get<IncorrectLightSignal>().Dispatch(BID);
+                SFXPlayer.Instance.NegativeSound(transform.position);
                 PuzzleError();
 
                 Guessing = false;

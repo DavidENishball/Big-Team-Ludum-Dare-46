@@ -138,6 +138,7 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
 
             molesHit++;
             mole.struck = true;
+            SFXPlayer.Instance.PlayHeavyButtonNoise(mole.mole.position);
             foreach (Mole m in moleList)
             {
                 if (m.mole.GetComponent<MeshRenderer>().material.color != victoryColor)
@@ -152,6 +153,7 @@ public class PuzzleManager_Whackamole : PuzzleManager_Base
             if (molesHit >= molesToWin)
             {
                 IsCompleted = true;
+                SFXPlayer.Instance.PositiveSound(transform.position);
                 Signals.Get<PuzzleComplete>().Dispatch(this);
                 foreach (Mole m in moleList)
                 {

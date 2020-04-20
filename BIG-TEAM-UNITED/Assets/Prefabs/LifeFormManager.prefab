@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelfDestructParticle: {fileID: 100000, guid: f881607407b15cc46b24d6bda799037a, type: 3}
+  IsLifeFormDestroyed: 0
   TankReference: {fileID: 0}
+  PuzzlesCompleted: 0
   TankIsReady: 0
   TankState: 1
+  TimerStartValue: 120
+  BonusTimePerStage: 30
+  DangerTimeKickinValue: 10

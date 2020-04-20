@@ -15,6 +15,8 @@ public class State_LifeForm_Growing : IState
 
     public bool IsStageFailed = false;
 
+    private Coroutine CachedTransitionCoroutine;
+
     public State_LifeForm_Growing(LifeformManager owner) { this.owner = owner; }
 
     public void Enter()
@@ -44,7 +46,9 @@ public class State_LifeForm_Growing : IState
         PuzzleErrorsPerformed = 0;
         PuzzleErrorsAllowed = owner.GetNumberOfFailuresAllowedForStage(StageNumber);
         IsStageFailed = false;
+        owner.SpawnNewPuzzles(StageNumber);
         Signals.Get<NewStageStartingSignal>().Dispatch(this);
+
     }
 
     public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)
@@ -69,9 +73,23 @@ public class State_LifeForm_Growing : IState
         {
             Debug.Log(string.Format("Stage {0} complete with {1} completions.  Advancing.", StageNumber, PuzzlesCompleted));
             StageNumber += 1;
-            Signals.Get<NewStageStartingSignal>().Dispatch(this);
-            ResetCurrentStage();
+            //ResetCurrentStage();
+            if (CachedTransitionCoroutine != null)
+            {
+                //CachedTransitionCoroutine;  // Reset it maybe?
+            }
+            owner.StartCoroutine(PlayEffectsAndAdvanceStage());
         }
+    }
+
+
+    public IEnumerator PlayEffectsAndAdvanceStage()
+    {
+        if (LifeformVisuals.Instance != null)
+        {
+            yield return (owner.StartCoroutine(LifeformVisuals.Instance.PlayEvolutionUpEffects()));
+        }
+        ResetCurrentStage();
     }
 
     public void HandlePuzzleError(Component Source = null)
@@ -89,4 +107,6 @@ public class State_LifeForm_Growing : IState
             }
         }
     }
+
+
 }

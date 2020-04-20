@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using deVoid.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class State_Tank_Dismissed : IState
     public void Enter()
     {
         Debug.Log("entering State_Tank_Dismissed");
+        Signals.Get<DismissTankSignal>().Dispatch();
+        LifeformManager.Instance.ClearAllPuzzles();
         owner.DismissTank();
     }
 
@@ -27,7 +30,7 @@ public class State_Tank_Dismissed : IState
 
     public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)
     {
-        if (Verb == LifeformManager.EControlVerbs.READY_TANK)
+        if (Verb == LifeformManager.EControlVerbs.READY_TANK && !owner.workingLock)
         {
             owner.stateMachine.ChangeState(new State_Tank_Ready(owner));
             return true;

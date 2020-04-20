@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2653884c35080242b302d708d5f7ec3
+guid: 84a0f6c400116cd48bd7254bc3a49928
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -15,6 +15,14 @@ ModelImporter:
     100018: Blast_Door_Top
     100020: Creature_Tank_Glass
     100022: Creature_Tank_Housing
+    100024: Biomass Ceiling
+    100026: Blast Door Bottom
+    100028: Blast Door Top
+    100030: Control Panel
+    100032: Creature Tank Glass
+    100034: Creature Tank Housing
+    100036: DELETE - TEST CAMERA
+    100038: Intruction Monitor
     400000: //RootNode
     400002: Biomass_Ceiling
     400004: Blast_Door
@@ -27,7 +35,17 @@ ModelImporter:
     400018: Blast_Door_Top
     400020: Creature_Tank_Glass
     400022: Creature_Tank_Housing
+    400024: Biomass Ceiling
+    400026: Blast Door Bottom
+    400028: Blast Door Top
+    400030: Control Panel
+    400032: Creature Tank Glass
+    400034: Creature Tank Housing
+    400036: DELETE - TEST CAMERA
+    400038: Intruction Monitor
+    2000000: DELETE - TEST CAMERA
     2100000: unnamed
+    2100002: No Name
     2300000: Biomass_Ceiling
     2300002: Blast_Door
     2300004: Control_Panel
@@ -39,6 +57,13 @@ ModelImporter:
     2300016: Blast_Door_Top
     2300018: Creature_Tank_Glass
     2300020: Creature_Tank_Housing
+    2300022: Biomass Ceiling
+    2300024: Blast Door Bottom
+    2300026: Blast Door Top
+    2300028: Control Panel
+    2300030: Creature Tank Glass
+    2300032: Creature Tank Housing
+    2300034: Intruction Monitor
     3300000: Biomass_Ceiling
     3300002: Blast_Door
     3300004: Control_Panel
@@ -50,6 +75,13 @@ ModelImporter:
     3300016: Blast_Door_Top
     3300018: Creature_Tank_Glass
     3300020: Creature_Tank_Housing
+    3300022: Biomass Ceiling
+    3300024: Blast Door Bottom
+    3300026: Blast Door Top
+    3300028: Control Panel
+    3300030: Creature Tank Glass
+    3300032: Creature Tank Housing
+    3300034: Intruction Monitor
     4300000: Wall
     4300002: Intruction_Monitor
     4300004: Blast_Door
@@ -61,6 +93,13 @@ ModelImporter:
     4300016: Creature_Tank_Glass
     4300018: Blast_Door_Bottom
     4300020: Creature_Tank_Housing
+    4300022: Blast Door Top
+    4300024: Creature Tank Glass
+    4300026: Intruction Monitor
+    4300028: Blast Door Bottom
+    4300030: Biomass Ceiling
+    4300032: Creature Tank Housing
+    4300034: Control Panel
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

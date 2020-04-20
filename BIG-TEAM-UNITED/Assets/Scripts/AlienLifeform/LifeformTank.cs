@@ -19,6 +19,8 @@ public class LifeformTank : MonoBehaviour
 
     public StateMachine stateMachine = new StateMachine();
 
+    public bool workingLock = false;
+
     private void Awake()
     {
         Signals.Get<ReadyTankSignal>().AddListener(SummonTank);
@@ -29,7 +31,7 @@ public class LifeformTank : MonoBehaviour
 
     public void ReceivedVerb(Component source, LifeformManager.EControlVerbs Verb, int data)
     {
-        Debug.Log("LifeFormTank received verb " + Verb.ToString());
+        //Debug.Log("LifeFormTank received verb " + Verb.ToString());
 
         stateMachine.HandleVerb(source, Verb, data);
     }
@@ -50,24 +52,41 @@ public class LifeformTank : MonoBehaviour
 
     public void SummonTank()
     {
+        if (workingLock)
+            return;
+
+        workingLock = true;
         Lifeform.SetActive(true);
 
         // TODO: LifeForm.Reset();
-        TankGlass.transform.DOMove(ReadyPosition, 1.0f).SetEase(Ease.OutCirc);
+        SFXPlayer.Instance.TubeRaise(transform.position);
+        TankGlass.transform.DOMove(ReadyPosition, 1.0f).SetEase(Ease.OutCirc).OnComplete(OnSummonTank);
+    }
+
+    public void OnSummonTank()
+    {
+        workingLock = false;
     }
 
     public void DismissTank()
     {
+        if (workingLock)
+            return;
+
+        Debug.Log("dismissing tank: ");
+
+        workingLock = true;
+        SFXPlayer.Instance.TubeFlush(transform.position);
         TankGlass.transform.DOMove(DismissedPosition, 1.0f).SetEase(Ease.InCirc).OnComplete(OnDismissFinished);
     }
 
-
+    
     public void OnDismissFinished()
     {
+        workingLock = false;
         Lifeform.SetActive(false);
+        Debug.Log("working lock deactivated");
     }
-
-
 }
 
 

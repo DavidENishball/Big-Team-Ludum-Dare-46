@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5522538340956921022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1977960355324307982}
+  - component: {fileID: 8458737086085007662}
+  m_Layer: 0
+  m_Name: SFXHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1977960355324307982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522538340956921022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8458737086085007662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522538340956921022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f91e88c3ca47f249954eaa9c4e56556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonNoises:
+  - {fileID: 8300000, guid: 79950af3b794c8b4584d5b50b43bb13b, type: 3}
+  - {fileID: 8300000, guid: dd5c4cd79dabbf04aa9c770c537d5c87, type: 3}
+  - {fileID: 8300000, guid: d052f671cab63ee4dbb6cb9eb0b0df55, type: 3}
+  - {fileID: 8300000, guid: 57f78fd0d2de95e4e8e1390dce17099e, type: 3}
+  - {fileID: 8300000, guid: 1c30debe1e51396418e24dffcd9fa37d, type: 3}
+  - {fileID: 8300000, guid: f840704fdb522204199ec7b71bb21309, type: 3}
+  - {fileID: 8300000, guid: 333513d827ab5054e8271dc89bc5f324, type: 3}
+  - {fileID: 8300000, guid: 52afc5707d271194998d677475d2f557, type: 3}
+  - {fileID: 8300000, guid: 34ed791ba6eec4d499e36176c4cdbaf5, type: 3}
+  - {fileID: 8300000, guid: 61c781e986e1df042a471e02e3c528b2, type: 3}
+  - {fileID: 8300000, guid: 608d904a585630b45a20a06da3fc490b, type: 3}
+  - {fileID: 8300000, guid: 15c87cac4d72ffd40b0a09e8aa148eaf, type: 3}
+  - {fileID: 8300000, guid: a090cb1c7be328944bd4c13adc26c533, type: 3}
+  - {fileID: 8300000, guid: 432091168a361044a8a779c26ac615ec, type: 3}
+  - {fileID: 8300000, guid: 2571606fd82570641bbc7b46099a4f3a, type: 3}
+  heavyButton: {fileID: 8300000, guid: 2efcd235cc6a2ac43a60d18f5c1264c3, type: 3}
+  tubeFlush: {fileID: 8300000, guid: 281f12d06b1077746b0fbc5872c2607d, type: 3}
+  tubeRaise: {fileID: 8300000, guid: 281f12d06b1077746b0fbc5872c2607d, type: 3}
+  explosionSound: {fileID: 8300000, guid: 098c1485fbcdaf847850b69994de2260, type: 3}
+  positiveSound: {fileID: 8300000, guid: bb538912d3d53df4b8ebdc8029b0a376, type: 3}
+  negativeSound: {fileID: 8300000, guid: e08e8399dcd887f43b6b56dca45b733e, type: 3}
+  beep: {fileID: 8300000, guid: 7cc961f786d87384fb5818d250764f30, type: 3}

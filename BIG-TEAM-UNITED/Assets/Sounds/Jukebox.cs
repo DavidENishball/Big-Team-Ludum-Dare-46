@@ -74,8 +74,8 @@ public class Jukebox : MonoBehaviour
 
     void SetPitch(float pitch)
     {
-        topSource.pitch = Mathf.Lerp(0f, 2f, pitch);
-        bottomSource.pitch = Mathf.Lerp(0f, 2f, pitch);
+        topSource.pitch = Mathf.Lerp(.2f, 1.8f, pitch);
+        bottomSource.pitch = Mathf.Lerp(.2f, 1.8f, pitch);
     }
 
     void SetDistortion(float distortion)

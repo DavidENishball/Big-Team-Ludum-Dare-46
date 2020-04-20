@@ -65,6 +65,8 @@ public class LifeformManager : MonoBehaviour
 
     public int PuzzlesSpawnedThisStage = 0;
 
+    public GameObject NewPuzzleParticlePrefab;
+
     private void Awake()
     {
         // Set up static instance.
@@ -129,6 +131,7 @@ public class LifeformManager : MonoBehaviour
         // To start, one puzzle per stage.
 
         int NumberOfPuzzlesRequired = GetNumberOfPuzzlesRequiredForStage(StageNumber);
+        Debug.Log("Need puzzles: " + NumberOfPuzzlesRequired.ToString());
         ClearAllPuzzles();
 
         for (int i = 0; i < NumberOfPuzzlesRequired && i < ListPuzzleSpawnPoint.Count; ++i)
@@ -147,6 +150,11 @@ public class LifeformManager : MonoBehaviour
             if (Manager != null)
             {
                 SpawnedPuzzles.Add(Manager);
+            }
+            // Add a particle
+            if (NewPuzzleParticlePrefab != null)
+            {
+                Instantiate(NewPuzzleParticlePrefab, NewPuzzleObject.transform);
             }
         }
     }
@@ -168,6 +176,18 @@ public class LifeformManager : MonoBehaviour
     void Update()
     {
         timer.Tick();
+
+        // Cheat code
+
+        if (Input.GetKey(KeyCode.P) && Input.GetKeyDown(KeyCode.K))
+        {
+            State_LifeForm_Growing GrowingState = stateMachine.GetState() as State_LifeForm_Growing;
+
+            if (GrowingState != null)
+            {
+                GrowingState.HandlePuzzleCompleted(this);
+            }
+        }
     }
     
 
@@ -176,8 +196,10 @@ public class LifeformManager : MonoBehaviour
         // TODO: make this a table.
         float HalfOfStage = (float)(StageNumber) / 2.0f;
 
-        
-        return Mathf.Max(1, (int)Mathf.Ceil(HalfOfStage));
+        int PuzzlesRequired = (int)Mathf.Ceil(HalfOfStage);
+
+
+        return Mathf.Clamp(PuzzlesRequired, 1, ListPuzzleSpawnPoint.Count); // For now, clamping to number of spawn points.
     }
 
     public int GetNumberOfFailuresAllowedForStage(int StageNumber)

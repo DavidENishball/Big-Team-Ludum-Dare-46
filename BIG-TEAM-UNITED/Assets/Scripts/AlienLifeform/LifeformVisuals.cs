@@ -116,6 +116,8 @@ public class LifeformVisuals : MonoBehaviour
         Debug.Log("Starting evolution up effects");
         
         float ShakeDuration = this.transform.DOShakePosition(EvolutionUpShakeDuration, 20f, 60, 90, false, false).Duration();
+        Debug.Log("IT'S EVOLUTION BABY");
+        SFXPlayer.Instance.TransformNoise(transform.position);
 
         float ParticleStartPercentage = 0.5f;
 

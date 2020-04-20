@@ -62,7 +62,9 @@ MonoBehaviour:
   heavyButton: {fileID: 8300000, guid: 2efcd235cc6a2ac43a60d18f5c1264c3, type: 3}
   tubeFlush: {fileID: 8300000, guid: 281f12d06b1077746b0fbc5872c2607d, type: 3}
   tubeRaise: {fileID: 8300000, guid: 281f12d06b1077746b0fbc5872c2607d, type: 3}
-  explosionSound: {fileID: 8300000, guid: 098c1485fbcdaf847850b69994de2260, type: 3}
+  explosionSound: {fileID: 8300000, guid: 7d37478e967ec7e47b0f8881e6504d06, type: 3}
   positiveSound: {fileID: 8300000, guid: bb538912d3d53df4b8ebdc8029b0a376, type: 3}
   negativeSound: {fileID: 8300000, guid: e08e8399dcd887f43b6b56dca45b733e, type: 3}
   beep: {fileID: 8300000, guid: 7cc961f786d87384fb5818d250764f30, type: 3}
+  transformNoise: {fileID: 8300000, guid: 2140655dd87e2f645ab5d97a18155ac5, type: 3}
+  dialNoise: {fileID: 8300000, guid: 7a7316864927b1f42b8cd85ac983cbe0, type: 3}

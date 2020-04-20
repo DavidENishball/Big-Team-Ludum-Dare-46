@@ -148,6 +148,11 @@ public class LifeformManager : MonoBehaviour
             {
                 SpawnedPuzzles.Add(Manager);
             }
+            // Add a particle
+            if (NewPuzzleParticlePrefab != null)
+            {
+                Instantiate(NewPuzzleParticlePrefab, NewPuzzleObject.transform);
+            }
         }
     }
 
@@ -177,7 +182,7 @@ public class LifeformManager : MonoBehaviour
         float HalfOfStage = (float)(StageNumber) / 2.0f;
 
         
-        return Mathf.Max(1, (int)Mathf.Ceil(HalfOfStage));
+        return Mathf.Clamp(1, (int)Mathf.Ceil(HalfOfStage), ListPuzzleSpawnPoint.Count); // For now, clamping to number of spawn points.
     }
 
     public int GetNumberOfFailuresAllowedForStage(int StageNumber)

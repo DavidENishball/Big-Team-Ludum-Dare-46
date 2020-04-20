@@ -166,7 +166,10 @@ public class LifeformManager : MonoBehaviour
     public int GetNumberOfPuzzlesRequiredForStage(int StageNumber)
     {
         // TODO: make this a table.
-        return Mathf.Max(1, StageNumber / 2);
+        float HalfOfStage = (float)(StageNumber) / 2.0f;
+
+        
+        return Mathf.Max(1, (int)Mathf.Ceil(HalfOfStage));
     }
 
     public int GetNumberOfFailuresAllowedForStage(int StageNumber)

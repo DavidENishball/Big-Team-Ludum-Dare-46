@@ -38,6 +38,7 @@ public class State_Tank_Ready : IState
         {
             if (LifeformManager.Instance.IsLifeFormDestroyed == false)
             {
+                SFXPlayer.Instance.ExplosionSound(LifeformManager.Instance.transform.position);
                 LifeformManager.Instance.stateMachine.ChangeState(new State_LifeForm_Destroyed(LifeformManager.Instance));
                 return true;
             }

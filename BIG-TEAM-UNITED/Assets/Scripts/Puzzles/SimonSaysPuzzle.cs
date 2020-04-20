@@ -76,6 +76,8 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                 if (_lastInputTimer > InputWaitTime && !Guessing && !Hinting)
                 {
                     SimonSaysHub.Get<FlashLightSignal>().Dispatch(TargetSequence[CurrentHintID], GetFlashesForDifficulty());
+
+                    SFXPlayer.Instance.Beep(transform.position);
                     Hinting = true;
                 }
 
@@ -96,6 +98,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                         else
                         {
                             SimonSaysHub.Get<FlashLightSignal>().Dispatch(TargetSequence[CurrentHintID], GetFlashesForDifficulty());
+                            SFXPlayer.Instance.Beep(transform.position);
                             _lastHintTimer = 0;
                         }
 
@@ -118,6 +121,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
     public override void PuzzleComplete()
     {
         base.PuzzleComplete();
+        SFXPlayer.Instance.PositiveSound(transform.position);
     }
 
     public override void PuzzleError()
@@ -290,6 +294,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
             {
                 SimonSaysHub.Get<CorrectLightSignal>().Dispatch(BID);
                 CorrectInputID++;
+                SFXPlayer.Instance.Beep(transform.position);
                 if(CorrectInputID >= TargetSequence.Count)
                 {
                     SimonSaysHub.Get<LightOnGreenSignal>().Dispatch(10 + (int)Level);
@@ -305,6 +310,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                         Guessing = false;
                         Hinting = false;
                         GenerateSequence();
+                        SFXPlayer.Instance.PositiveSound(transform.position);
                     }
                 
                 }
@@ -312,6 +318,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
             else
             {
                 SimonSaysHub.Get<IncorrectLightSignal>().Dispatch(BID);
+                SFXPlayer.Instance.NegativeSound(transform.position);
                 PuzzleError();
 
                 Guessing = false;

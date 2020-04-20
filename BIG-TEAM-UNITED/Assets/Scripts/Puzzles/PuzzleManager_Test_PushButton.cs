@@ -24,6 +24,7 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
     {
         base.PuzzleComplete();
         PanelBase.GetComponent<MeshRenderer>().material = VictoryMaterial; // Example of how to change visuals in response to a win.
+        SFXPlayer.Instance.PositiveSound(transform.position);
     }
 
     void Start()
@@ -51,6 +52,7 @@ public class PuzzleManager_Test_PushButton : PuzzleManager_Base
         if (source.gameObject.transform.IsChildOf(this.transform))
         {
             this.transform.DOShakePosition(0.2f, 0.01f, 30);
+            SFXPlayer.Instance.PlayButtonNoise(source.transform.position);
             if (!IsCompleted)
             {
                 PressesReceived++;

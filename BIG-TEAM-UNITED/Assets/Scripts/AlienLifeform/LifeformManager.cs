@@ -49,7 +49,7 @@ public class LifeformManager : MonoBehaviour
     public ETankState TankState = ETankState.DISMISSED;
 
     public float TimerStartValue = 120f;
-    public float BonusTimePerStage = 30f;
+    public float BonusTimePerStage = 0f;
     public float PenaltyPerError = 5f;
     public float DangerTimeKickinValue = 10f;
     public Timer timer;
@@ -62,6 +62,8 @@ public class LifeformManager : MonoBehaviour
     public List<GameObject> PossiblePuzzlePrefabs = new List<GameObject>();
 
     public int TotalPuzzlesSpawnedEver = 0;
+
+    public int PuzzlesSpawnedThisStage = 0;
 
     private void Awake()
     {

@@ -52,3 +52,6 @@ public class PuzzleComplete : ASignal<Component> { };
 public class PuzzleError : ASignal<Component> { };
 
 public class TimeOut : ASignal { };
+
+
+public class LifeformVisualsStepSet : ASignal<int> { };

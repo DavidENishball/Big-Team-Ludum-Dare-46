@@ -71,11 +71,7 @@ public class LifeformManager : MonoBehaviour
 
         // Set up timer
         timer = new Timer(TimerStartValue, BonusTimePerStage, PenaltyPerError, DangerTimeKickinValue);
-        Signals.Get<PuzzleComplete>().AddListener(timer.AddBonus);
-        Signals.Get<PuzzleError>().AddListener(timer.SubtractPenalty);
     }
-
-    
 
 
     public void ReceivedVerb(Component source, EControlVerbs Verb, int data)
@@ -112,7 +108,10 @@ public class LifeformManager : MonoBehaviour
             ListPuzzleSpawnPoint = new List<PuzzleObjectSpawnPoint>(FindObjectsOfType<PuzzleObjectSpawnPoint>());
         }
 
-        
+        Signals.Get<PuzzleComplete>().AddListener(timer.AddBonus);
+        Signals.Get<PuzzleError>().AddListener(timer.SubtractPenalty);
+        Signals.Get<DismissTankSignal>().AddListener(timer.DisableTimer);
+        Signals.Get<ReadyTankSignal>().AddListener(timer.ResetAndEnable);
     }
 
     public void SpawnNewPuzzles(int StageNumber)
@@ -159,7 +158,6 @@ public class LifeformManager : MonoBehaviour
     void Update()
     {
         timer.Tick();
-        //Debug.Log(timer.Remaining);
     }
     
 

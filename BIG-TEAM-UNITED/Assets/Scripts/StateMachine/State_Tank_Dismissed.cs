@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using deVoid.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class State_Tank_Dismissed : IState
     public void Enter()
     {
         Debug.Log("entering State_Tank_Dismissed");
+        Signals.Get<DismissTankSignal>().Dispatch();
         owner.DismissTank();
     }
 

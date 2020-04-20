@@ -65,6 +65,8 @@ public class LifeformManager : MonoBehaviour
 
     public int PuzzlesSpawnedThisStage = 0;
 
+    public GameObject NewPuzzleParticlePrefab;
+
     private void Awake()
     {
         // Set up static instance.
@@ -173,6 +175,18 @@ public class LifeformManager : MonoBehaviour
     void Update()
     {
         timer.Tick();
+
+        // Cheat code
+
+        if (Input.GetKey(KeyCode.P) && Input.GetKeyDown(KeyCode.K))
+        {
+            State_LifeForm_Growing GrowingState = stateMachine.GetState() as State_LifeForm_Growing;
+
+            if (GrowingState != null)
+            {
+                GrowingState.HandlePuzzleCompleted(this);
+            }
+        }
     }
     
 

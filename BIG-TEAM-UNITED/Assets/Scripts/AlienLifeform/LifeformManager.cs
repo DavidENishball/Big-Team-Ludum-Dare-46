@@ -154,7 +154,7 @@ public class LifeformManager : MonoBehaviour
             // Add a particle
             if (NewPuzzleParticlePrefab != null)
             {
-                Instantiate(NewPuzzleParticlePrefab, NewPuzzleObject.transform);
+                Instantiate(NewPuzzleParticlePrefab, NewPuzzleObject.transform.position, NewPuzzleObject.transform.rotation);
             }
         }
     }

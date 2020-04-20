@@ -92,7 +92,10 @@ public class LifeformVisuals : MonoBehaviour
             DeactivateAll();
             ChosenVisualsStruct.CreatureVisuals.SetActive(true);
             ChosenVisualsStruct.CreatureVisuals.transform.localScale = Vector3.one * (ChosenVisualsStruct.BaseScale + ChosenVisualsStruct.ScalePerStage * (stagesSinceThisEvolutionStarted + 1));
+
+            Signals.Get<LifeformVisualsStepSet>().Dispatch(EvolutionIndex);
         } 
+
     }
 
     private void DeactivateAll()
@@ -113,6 +116,8 @@ public class LifeformVisuals : MonoBehaviour
         Debug.Log("Starting evolution up effects");
         
         float ShakeDuration = this.transform.DOShakePosition(EvolutionUpShakeDuration, 20f, 60, 90, false, false).Duration();
+        Debug.Log("IT'S EVOLUTION BABY");
+        SFXPlayer.Instance.TransformNoise(transform.position);
 
         float ParticleStartPercentage = 0.5f;
 

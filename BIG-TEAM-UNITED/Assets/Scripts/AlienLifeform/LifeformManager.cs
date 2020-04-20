@@ -80,7 +80,7 @@ public class LifeformManager : MonoBehaviour
 
     public void ReceivedVerb(Component source, EControlVerbs Verb, int data)
     {
-        Debug.Log("LifeFormManager received verb " + Verb.ToString());
+       // Debug.Log("LifeFormManager received verb " + Verb.ToString());
 
         stateMachine.HandleVerb(source, Verb, data);
 

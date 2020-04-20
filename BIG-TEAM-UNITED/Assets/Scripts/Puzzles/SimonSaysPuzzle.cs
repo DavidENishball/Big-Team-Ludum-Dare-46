@@ -117,6 +117,12 @@ public class SimonSaysPuzzle : PuzzleManager_Base
 
     public override void PuzzleComplete()
     {
+        // Activate all lights on puzzle complete
+        for (int i = 9; i <= 50; i++)
+        {
+            SimonSaysHub.Get<LightOnGreenSignal>().Dispatch(i);
+        }
+
         base.PuzzleComplete();
     }
 
@@ -211,10 +217,10 @@ public class SimonSaysPuzzle : PuzzleManager_Base
         switch (Level)
         {
             case (SimonPuzzleLevel.Start):
-                count = 3;
+                count = 4;
                 break;
             case (SimonPuzzleLevel.Easy):
-                count = 3;
+                count = 4;
                 break;
             case (SimonPuzzleLevel.Medium):
                 count = 4;
@@ -294,7 +300,7 @@ public class SimonSaysPuzzle : PuzzleManager_Base
                 {
                     SimonSaysHub.Get<LightOnGreenSignal>().Dispatch(10 + (int)Level);
                     Level = Level + 1;
-                    if(Level == SimonPuzzleLevel.Complete)
+                    if(Level == SimonPuzzleLevel.Easy) // Hijacking this to make the puzzl shorter.
                     {
                         ClearLights();
                         PuzzleComplete();

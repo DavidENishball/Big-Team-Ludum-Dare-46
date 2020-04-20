@@ -5959,6 +5959,11 @@ PrefabInstance:
       propertyPath: TankReference
       value: 
       objectReference: {fileID: 1787400430}
+    - target: {fileID: 1249213059449656052, guid: 9ae420e200c86d34c9611e946e27f32a,
+        type: 3}
+      propertyPath: BonusTimePerStage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1249213059449656053, guid: 9ae420e200c86d34c9611e946e27f32a,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -21,6 +21,11 @@ public class Knob : MonoBehaviour, IValueInteractable
 
     private Vector3 lastMousepos = Vector3.zero;
 
+    void Start()
+    {
+        RotateBasedOnValue();
+    }
+
     // interface stuff
     public float GetValue()
     {

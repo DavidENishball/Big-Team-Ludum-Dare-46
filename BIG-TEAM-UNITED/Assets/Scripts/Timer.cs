@@ -12,6 +12,8 @@ public class Timer
 
     public string RemainingReadable => Remaining.ToString("F1");
 
+    public bool Enabled { get; private set; }
+
     public Timer(float startValue, float bonusPerStageCompletion, float penaltyPerFailure, float slowTickStartValue)
     {
         StartValue = startValue;
@@ -20,6 +22,17 @@ public class Timer
         DangerTime = slowTickStartValue;
 
         Remaining = StartValue;
+    }
+
+   public void ResetAndEnable()
+    {
+        Enabled = true;
+        Remaining = StartValue;
+    }
+
+    public void DisableTimer()
+    {
+        Enabled = false;
     }
 
     public void AddBonus(Component source)
@@ -34,6 +47,9 @@ public class Timer
 
     public void Tick()
     {
+        if (!Enabled)
+            return;
+
         if (Remaining > DangerTime)
             TickNormal();
         else

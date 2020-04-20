@@ -101,7 +101,7 @@ MonoBehaviour:
   _lastInputTimer: 0
   _lastHintTimer: 0
   _errorTimer: 0
-  InputWaitTime: 3
+  InputWaitTime: 1
   HintTime: 1
   Hinting: 0
   Guessing: 0

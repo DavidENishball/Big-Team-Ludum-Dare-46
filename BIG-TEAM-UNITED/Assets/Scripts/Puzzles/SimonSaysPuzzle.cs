@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SimonSaysPuzzle : PuzzleManager_Base
 {
-    public static SignalHub SimonSaysHub = new SignalHub();
+    public SignalHub SimonSaysHub = new SignalHub();
 
     public List<SimonSaysButton> LightButtons;
 
@@ -157,17 +157,17 @@ public class SimonSaysPuzzle : PuzzleManager_Base
 
     public int GetFlashesForDifficulty()
     {
-        int count = 0;
+        int count = 1;
         switch(Level)
         {
             case (SimonPuzzleLevel.Start):
-                count = 3;
+                count = 1;
                 break;
             case (SimonPuzzleLevel.Easy):
-                count = 3;
+                count = 1;
                 break;
             case (SimonPuzzleLevel.Medium):
-                count = 2;
+                count = 1;
                 break;
             case (SimonPuzzleLevel.Hard):
                 count = 1;
@@ -178,6 +178,31 @@ public class SimonSaysPuzzle : PuzzleManager_Base
         }
 
         return count;
+    }
+
+    public float GetFlashDurationPerDifficulyLevel()
+    {
+        float duration = 0;
+        switch (Level)
+        {
+            case (SimonPuzzleLevel.Start):
+                duration = 0.3f;
+                break;
+            case (SimonPuzzleLevel.Easy):
+                duration = 0.25f;
+                break;
+            case (SimonPuzzleLevel.Medium):
+                duration = 0.2f;
+                break;
+            case (SimonPuzzleLevel.Hard):
+                duration = 0.15f;
+                break;
+            case (SimonPuzzleLevel.Complete):
+                duration = 0.0f;
+                break;
+        }
+
+        return duration;
     }
 
     public int GetSequenceLengthForDifficulty()

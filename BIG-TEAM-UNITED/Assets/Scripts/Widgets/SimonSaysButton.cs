@@ -6,7 +6,8 @@ using deVoid.Utils;
 
 public class SimonSaysButton : AxeSimpleLightButton
 {
-    public SignalHub SSSignals = SimonSaysPuzzle.SimonSaysHub;
+    public SimonSaysPuzzle Parent = null;
+    public SignalHub SSSignals;
     public Renderer ButtonRenderer;
 
     private float _flashTimer = 0;
@@ -18,10 +19,17 @@ public class SimonSaysButton : AxeSimpleLightButton
     // Start is called before the first frame update
     void Start()
     {
+        Parent = GetComponentInParent<SimonSaysPuzzle>();
+
+        if (Parent)
+        {
+            SSSignals = Parent.SimonSaysHub;
+        }
+
         SSSignals.Get<CorrectLightSignal>().AddListener(CorrectAndLock);
         SSSignals.Get<IncorrectLightSignal>().AddListener(IncorrectAndLock);
         SSSignals.Get<ClearLightSignal>().AddListener(Reset);
-        SSSignals.Get<FlashLightSignal>().AddListener(StartFlash);
+        SSSignals.Get<FlashLightSignal>().AddListener(StartFlashNoParams);
         SSSignals.Get<LockLightSignal>().AddListener(Lock);
     }
 
@@ -29,12 +37,12 @@ public class SimonSaysButton : AxeSimpleLightButton
     void Update()
     {
         //flash logic
-        if(Flashing)
+        if (Flashing)
         {
             _flashTimer += Time.deltaTime;
-            if(LightUp)
+            if (LightUp)
             {
-                if(_flashTimer > FlashTimeUp)
+                if (_flashTimer > FlashTimeUp)
                 {
                     ButtonRenderer.material = Dull;
                     LightUp = false;
@@ -43,7 +51,7 @@ public class SimonSaysButton : AxeSimpleLightButton
                     _flashTimer = 0f;
                 }
             }
-            else if(LightDown)
+            else if (LightDown)
             {
                 if (_flashTimer > FlashTimeDown)
                 {
@@ -76,7 +84,7 @@ public class SimonSaysButton : AxeSimpleLightButton
         {
             interactable = false;
         }
-    } 
+    }
     public void CorrectAndLock(int BID)
     {
         if (BID == ID)
@@ -97,7 +105,7 @@ public class SimonSaysButton : AxeSimpleLightButton
 
     public void HandleLightOff(int BID)
     {
-        if(BID == ID)
+        if (BID == ID)
         {
             ButtonRenderer.material = Dull;
         }
@@ -119,13 +127,21 @@ public class SimonSaysButton : AxeSimpleLightButton
             interactable = true;
         }
     }
-
-    public void StartFlash(int BID, int Count)
+    public void StartFlashNoParams(int BID, int Count)
     {
         if (BID == ID)
         {
-            InitFlash(Count);
+            float flashTime = Parent.GetFlashDurationPerDifficulyLevel();
+            StartFlash(BID, Count, flashTime);
         }
+    }
+    public void StartFlash(int BID, int Count, float ArgFlashTimeUp = 0.2f, float ArgFlashTimeDown = 0.1f)
+    {
+
+        FlashTimeUp = ArgFlashTimeUp;
+        FlashTimeDown = ArgFlashTimeDown;
+        InitFlash(Count);
+
     }
     protected override void OnMouseDown()
     {

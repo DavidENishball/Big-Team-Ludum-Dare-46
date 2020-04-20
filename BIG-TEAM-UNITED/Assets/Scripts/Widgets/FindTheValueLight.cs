@@ -30,4 +30,9 @@ public class FindTheValueLight : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        Signals.Get<FindTheValueDiffLight>().RemoveListener(SetLight);
+    }
+
 }

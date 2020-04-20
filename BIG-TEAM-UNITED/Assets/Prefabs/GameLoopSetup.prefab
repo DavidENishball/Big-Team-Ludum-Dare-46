@@ -49,7 +49,7 @@ MonoBehaviour:
   EvolutionUpCompleteParticle: {fileID: 0}
   deathStageNumber: 0
   EvolutionUpShakeDuration: 1
-  StageObjects: []
+  VisualsStructList: []
 --- !u!1001 &1249213058703812115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 3979691241683960695, guid: 75e8abf280be21d4db7fc7f5522fd081,
         type: 3}
       propertyPath: PossiblePuzzlePrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3979691241683960695, guid: 75e8abf280be21d4db7fc7f5522fd081,
         type: 3}
@@ -291,6 +291,12 @@ PrefabInstance:
       propertyPath: PossiblePuzzlePrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 3164928904534368396, guid: 70b4d8333f0bf1c4f8c858876645b8ad,
+        type: 3}
+    - target: {fileID: 3979691241683960695, guid: 75e8abf280be21d4db7fc7f5522fd081,
+        type: 3}
+      propertyPath: PossiblePuzzlePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7546856753851747532, guid: 6dfbc94a7e4fe364cadc96f73b4aab92,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e8abf280be21d4db7fc7f5522fd081, type: 3}

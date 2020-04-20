@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 297082241}
   - component: {fileID: 297082242}
   m_Layer: 0
-  m_Name: The Placeholder (1)
+  m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: -651308441
   m_SortingLayer: 1
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 5e9943aed1e4d9a4e82fa398b9f6e1df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee635b2f907e50c48b0992d41c38b1a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -308,7 +308,7 @@ SpriteRenderer:
   m_SortingLayerID: -651308441
   m_SortingLayer: 1
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: ba9a42acdc007c34490fe7382d13cae3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15bfa0268791b3d4e97a3af07d2a467f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -344,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351895960}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.07, y: 0, z: 0.363}
+  m_LocalPosition: {x: -0.062, y: 0, z: 0.363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 297082241}
@@ -387,7 +387,7 @@ SpriteRenderer:
   m_SortingLayerID: -651308441
   m_SortingLayer: 1
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: b823db34b6fec0442a4954cc7a98376f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd484b6e817865342af8291ffae4bb37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

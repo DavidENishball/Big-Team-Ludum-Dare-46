@@ -27,6 +27,8 @@ public class SFXPlayer : MonoBehaviour
     public AudioClip positiveSound;
     public AudioClip negativeSound;
     public AudioClip beep;
+    public AudioClip transformNoise;
+    public AudioClip dialNoise;
 
 
     public void PlayButtonNoise(Vector3 audioPos)
@@ -72,5 +74,25 @@ public class SFXPlayer : MonoBehaviour
     public void Beep(Vector3 audioPos)
     {
         AudioSource.PlayClipAtPoint(beep, audioPos);
+    }
+
+    public void TransformNoise(Vector3 audioPos)
+    {
+        AudioSource.PlayClipAtPoint(transformNoise, audioPos);
+    }
+
+    public void StartDialNoise(GameObject go)
+    {
+        AudioSource auS = go.AddComponent<AudioSource>();
+        auS.clip = dialNoise;
+        auS.loop = true;
+        auS.Play();
+    }
+
+    public void EndDialNoise(GameObject go)
+    {
+        AudioSource auS = go.GetComponent<AudioSource>();
+        auS.Stop();
+        Destroy(auS);
     }
 }

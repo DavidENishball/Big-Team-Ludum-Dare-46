@@ -49,6 +49,13 @@ public class Knob : MonoBehaviour, IValueInteractable
     private void Rotate(float delta)
     {
         rotation = Mathf.Clamp(rotation + delta, -maxRotation, maxRotation);
+
+        if (pressed && !playingNoise && !Mathf.Approximately(rotation, 0f))
+        {
+            playingNoise = true;
+            SFXPlayer.Instance.StartDialNoise(gameObject);
+        }
+
         thingToRotate.transform.localRotation = Quaternion.Euler(0, rotation, 0);
     }
 
@@ -67,13 +74,22 @@ public class Knob : MonoBehaviour, IValueInteractable
         Rotate(0f);
     }
 
+
+    private bool playingNoise = false;
     // responding to mouseclicks
     private void Update()
     {
         if (pressed)
         {
             if (Input.GetMouseButtonUp(0))
+            {
                 pressed = false;
+                if (playingNoise)
+                {
+                    playingNoise = false;
+                    SFXPlayer.Instance.EndDialNoise(gameObject);
+                }
+            }
 
             RotateBasedOnMousePosition();
             UpdateValueBasedOnRotation();
@@ -84,5 +100,13 @@ public class Knob : MonoBehaviour, IValueInteractable
     {
         pressed = true;
         lastMousepos = Input.mousePosition;
+    }
+
+    private void OnDestroy()
+    {
+        if (playingNoise)
+        {
+            SFXPlayer.Instance.EndDialNoise(gameObject);
+        }
     }
 }

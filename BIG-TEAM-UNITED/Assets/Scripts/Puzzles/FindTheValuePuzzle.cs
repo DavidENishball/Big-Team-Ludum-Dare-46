@@ -53,10 +53,9 @@ public class FindTheValuePuzzle : PuzzleManager_Base
 
                 if (diff == 0f)
                 {
-                    IsCompleted = true;
                     SFXPlayer.Instance.PositiveSound(this.transform.position);
                     SFXPlayer.Instance.PlayHeavyButtonNoise(this.transform.position);
-                    Signals.Get<PuzzleComplete>().Dispatch(this);
+                    PuzzleComplete();
                 }
             }
         }

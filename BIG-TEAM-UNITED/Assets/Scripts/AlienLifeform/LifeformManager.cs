@@ -122,6 +122,7 @@ public class LifeformManager : MonoBehaviour
     {
         if (!(stateMachine.GetState() is State_LifeForm_Destroyed))
         {
+            SFXPlayer.Instance.ExplosionSound(transform.position);
             stateMachine.ChangeState(new State_LifeForm_Destroyed(this));
         }
     }

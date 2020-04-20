@@ -131,6 +131,7 @@ public class LifeformManager : MonoBehaviour
         // To start, one puzzle per stage.
 
         int NumberOfPuzzlesRequired = GetNumberOfPuzzlesRequiredForStage(StageNumber);
+        Debug.Log("Need puzzles: " + NumberOfPuzzlesRequired.ToString());
         ClearAllPuzzles();
 
         for (int i = 0; i < NumberOfPuzzlesRequired && i < ListPuzzleSpawnPoint.Count; ++i)
@@ -195,8 +196,10 @@ public class LifeformManager : MonoBehaviour
         // TODO: make this a table.
         float HalfOfStage = (float)(StageNumber) / 2.0f;
 
-        
-        return Mathf.Clamp(1, (int)Mathf.Ceil(HalfOfStage), ListPuzzleSpawnPoint.Count); // For now, clamping to number of spawn points.
+        int PuzzlesRequired = (int)Mathf.Ceil(HalfOfStage);
+
+
+        return Mathf.Clamp(PuzzlesRequired, 1, ListPuzzleSpawnPoint.Count); // For now, clamping to number of spawn points.
     }
 
     public int GetNumberOfFailuresAllowedForStage(int StageNumber)

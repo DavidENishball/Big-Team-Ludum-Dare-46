@@ -14,6 +14,7 @@ public class State_Tank_Dismissed : IState
     {
         Debug.Log("entering State_Tank_Dismissed");
         Signals.Get<DismissTankSignal>().Dispatch();
+        LifeformManager.Instance.ClearAllPuzzles();
         owner.DismissTank();
     }
 

@@ -16,6 +16,9 @@ public class State_LifeForm_Destroyed : IState
         Debug.Log("entering State_LifeForm_Destroyed");
         owner.TankReference.Lifeform.SetActive(false);
 
+        // Clear all puzzles.
+        LifeformManager.Instance.ClearAllPuzzles();
+
         owner.IsLifeFormDestroyed = true;
         GameObject.Instantiate(LifeformManager.Instance.SelfDestructParticle , owner.TankReference.Lifeform.transform.position, Random.rotation );
         

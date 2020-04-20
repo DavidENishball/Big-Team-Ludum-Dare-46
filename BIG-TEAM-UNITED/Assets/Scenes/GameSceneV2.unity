@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -234,7 +234,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 5000
-  field of view: 45
+  field of view: 72
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -260,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193672677}
   m_LocalRotation: {x: -0.0029711113, y: -0, z: -0, w: 0.9999956}
-  m_LocalPosition: {x: 140, y: 393, z: -2179}
+  m_LocalPosition: {x: -451.519, y: 97.188, z: -2128.294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5270,7 +5270,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.28683335, g: 0.05098039, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 1000
+  m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -5972,6 +5972,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoopSetup
       objectReference: {fileID: 0}
+    - target: {fileID: 5209246742691533791, guid: 9ae420e200c86d34c9611e946e27f32a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5209246742876514695, guid: 9ae420e200c86d34c9611e946e27f32a,
         type: 3}
       propertyPath: m_Mesh
@@ -6015,7 +6020,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127614
+  m_Name: pb_Mesh-212992
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6175,7 +6180,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127462
+  m_Name: pb_Mesh-212842
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6335,7 +6340,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127540
+  m_Name: pb_Mesh-212920
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6570,7 +6575,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127492
+  m_Name: pb_Mesh-212872
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6730,7 +6735,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127558
+  m_Name: pb_Mesh-212938
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6931,7 +6936,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.46293163, g: 0.9716981, b: 0.93953496, a: 1}
   m_Intensity: 5.5
-  m_Range: 500
+  m_Range: 5
   m_SpotAngle: 43
   m_CookieSize: 10
   m_Shadows:
@@ -7076,7 +7081,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127508
+  m_Name: pb_Mesh-212888
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7236,7 +7241,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127520
+  m_Name: pb_Mesh-212900
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7467,7 +7472,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127476
+  m_Name: pb_Mesh-212856
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7858,7 +7863,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.46293163, g: 0.9716981, b: 0.93953496, a: 1}
   m_Intensity: 5
-  m_Range: 500
+  m_Range: 5
   m_SpotAngle: 43
   m_CookieSize: 10
   m_Shadows:
@@ -7904,7 +7909,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127576
+  m_Name: pb_Mesh-212956
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8354,7 +8359,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0.09689268, b: 0.051886797, a: 1}
   m_Intensity: 10
-  m_Range: 1000
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -8467,7 +8472,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127454
+  m_Name: pb_Mesh-212834
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8668,7 +8673,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.46293163, g: 0.9716981, b: 0.93953496, a: 1}
   m_Intensity: 5
-  m_Range: 500
+  m_Range: 5
   m_SpotAngle: 43
   m_CookieSize: 10
   m_Shadows:
@@ -8855,7 +8860,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127630
+  m_Name: pb_Mesh-213008
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -9224,7 +9229,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.366901, g: 0.9150943, b: 0.520475, a: 1}
   m_Intensity: 10
-  m_Range: 1000
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:

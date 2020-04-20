@@ -687,7 +687,7 @@ MonoBehaviour:
   holdTime: 0.5
   lowerTime: 0.25
   spawnTime: 0.3
-  molesToWin: 15
+  molesToWin: 10
   moles:
   - {fileID: 9207993004403074101}
   - {fileID: 6678373960239130097}

@@ -31,7 +31,7 @@ public class LifeformTank : MonoBehaviour
 
     public void ReceivedVerb(Component source, LifeformManager.EControlVerbs Verb, int data)
     {
-        Debug.Log("LifeFormTank received verb " + Verb.ToString());
+        //Debug.Log("LifeFormTank received verb " + Verb.ToString());
 
         stateMachine.HandleVerb(source, Verb, data);
     }

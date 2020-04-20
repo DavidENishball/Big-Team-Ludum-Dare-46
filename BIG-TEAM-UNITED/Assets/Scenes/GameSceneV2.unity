@@ -458,15 +458,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7edc71520b62374bb8328c8fe7b1069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseStageScale: 0.15
+  BaseStageScale: 0.5
   EvolutionUpCompleteParticle: {fileID: 100006, guid: f6975c1f0e6274441b6b0f513b298433,
     type: 3}
   deathStageNumber: 0
+  StagesPerEvolution: 2
   EvolutionUpShakeDuration: 1
+  StagesPerEvolutionStep: 020000000300000005000000
   StageObjects:
   - {fileID: 1351895960}
   - {fileID: 556062495}
   - {fileID: 856588949}
+  VisualsStructList:
+  - StagesForThisStep: 2
+    CreatureVisuals: {fileID: 1351895960}
+    ScalePerStage: 0.2
+    BaseScale: 0.2
+  - StagesForThisStep: 3
+    CreatureVisuals: {fileID: 556062495}
+    ScalePerStage: 0.2
+    BaseScale: 0.2
+  - StagesForThisStep: 10
+    CreatureVisuals: {fileID: 856588949}
+    ScalePerStage: 0.1
+    BaseScale: 0.4
 --- !u!1001 &345995545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5963,6 +5978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BonusTimePerStage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249213059449656052, guid: 9ae420e200c86d34c9611e946e27f32a,
+        type: 3}
+      propertyPath: TimerStartValue
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1249213059449656053, guid: 9ae420e200c86d34c9611e946e27f32a,
         type: 3}

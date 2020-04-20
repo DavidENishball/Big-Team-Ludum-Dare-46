@@ -40,6 +40,7 @@ public class Jukebox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(topSource.time + " " + topSource.clip.length);
         if (!topSource.isPlaying && topSource.time >= topSource.clip.length)
         {
             currentSongs++;
@@ -47,6 +48,8 @@ public class Jukebox : MonoBehaviour
                 currentSongs = 0;
             topSource.clip = songs[currentSongs].topSong;
             bottomSource.clip = songs[currentSongs].bottomSong;
+            topSource.Play();
+            bottomSource.Play();
         }
     }
 

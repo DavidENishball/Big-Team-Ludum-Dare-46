@@ -70,7 +70,7 @@ public class LifeformManager : MonoBehaviour
         // Set up static instance.
         static_instance = this;
         Signals.Get<PerformVerbSignal>().AddListener(ReceivedVerb);
-
+        Signals.Get<TimeOut>().AddListener(HandleTimeExpired);
         // Set up timer
         timer = new Timer(TimerStartValue, BonusTimePerStage, PenaltyPerError, DangerTimeKickinValue);
     }
@@ -114,6 +114,14 @@ public class LifeformManager : MonoBehaviour
         Signals.Get<PuzzleError>().AddListener(timer.SubtractPenalty);
         Signals.Get<DismissTankSignal>().AddListener(timer.DisableTimer);
         Signals.Get<ReadyTankSignal>().AddListener(timer.ResetAndEnable);
+    }
+
+    public void HandleTimeExpired()
+    {
+        if (!(stateMachine.GetState() is State_LifeForm_Destroyed))
+        {
+            stateMachine.ChangeState(new State_LifeForm_Destroyed(this));
+        }
     }
 
     public void SpawnNewPuzzles(int StageNumber)

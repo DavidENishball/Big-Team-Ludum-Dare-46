@@ -16,8 +16,6 @@ public class State_Tank_Ready : IState
         LifeformManager.Instance.IsLifeFormDestroyed = false;
         LifeformManager.Instance.stateMachine.ChangeState(new State_LifeForm_Growing(LifeformManager.Instance));
         Signals.Get<ReadyTankSignal>().Dispatch();
-        owner.SummonTank();
-       
     }
 
     public void Execute()
@@ -32,7 +30,7 @@ public class State_Tank_Ready : IState
 
     public bool HandleVerb(Component Source, LifeformManager.EControlVerbs Verb, int Data)
     {
-        if (Verb == LifeformManager.EControlVerbs.DISMISS_TANK)
+        if (Verb == LifeformManager.EControlVerbs.DISMISS_TANK && !owner.workingLock)
         {
             owner.stateMachine.ChangeState(new State_Tank_Dismissed(owner));
         }
